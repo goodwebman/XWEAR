@@ -1,16 +1,14 @@
 import Navigation from './components/nav/Navigation'
 import Slider from './components/slider/Slider'
 
-
 function App() {
-  
+	return (
+		<>
+			<Navigation />
 
-  return (
-    <>
-      <Navigation />
-      <Slider />
-    </>
-  )
+			<Slider />
+		</>
+	)
 }
 
 export default App
