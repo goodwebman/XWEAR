@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: 'RFDewiExtended'; /*  Название шрифта, которое вы будете использовать в Tailwind */
+  src: url('./fonts/RFDewiExpanded-Black.woff2') format('woff2'),
+       url('./fonts/RFDewiExpanded-Black.woff') format('woff'); /* Путь к файлу шрифта */
+  font-weight: 900; /*  Определите вес шрифта (обычно 400 для Regular) */
+  font-style: normal; /*  Определите стиль шрифта (обычно normal для Regular) */
+  font-display: swap; /*  Оптимизация загрузки шрифта */
+}
+
+@font-face {
+  font-family: 'RFDewiExtended'; /*  Название шрифта, которое вы будете использовать в Tailwind */
+  src: url('./fonts/RFDewiExpanded-Semibold.woff2') format('woff2'),
+       url('./fonts/RFDewiExpanded-Semibold.woff') format('woff'); /* Путь к файлу шрифта */
+  font-weight: 700; /*  Определите вес шрифта (обычно 400 для Regular) */
+  font-style: normal; /*  Определите стиль шрифта (обычно normal для Regular) */
+  font-display: swap; /*  Оптимизация загрузки шрифта */
+}
+
+@font-face {
+  font-family: 'RFDewiExtended'; /*  Название шрифта, которое вы будете использовать в Tailwind */
+  src: url('./fonts/RFDewiExtended-Bold.woff2') format('woff2'),
+       url('./fonts/RFDewiExtended-Bold.woff') format('woff'); /* Путь к файлу шрифта */
+  font-weight: 800; /*  Определите вес шрифта (обычно 400 для Regular) */
+  font-style: normal; /*  Определите стиль шрифта (обычно normal для Regular) */
+  font-display: swap; /*  Оптимизация загрузки шрифта */
+}
+
+@font-face {
+  font-family: 'RFDewiExtended'; /*  Название шрифта, которое вы будете использовать в Tailwind */
+  src: url('./fonts/RFDewiExtended-Regular.woff2') format('woff2'),
+       url('./fonts/RFDewiExtended-Regular.woff') format('woff'); /* Путь к файлу шрифта */
+  font-weight: 400; /*  Определите вес шрифта (обычно 400 для Regular) */
+  font-style: normal; /*  Определите стиль шрифта (обычно normal для Regular) */
+  font-display: swap; /*  Оптимизация загрузки шрифта */
+}
+
+@font-face {
+  font-family: 'RFDewiExtended'; /*  Название шрифта, которое вы будете использовать в Tailwind */
+  src: url('./fonts/RFDewiExtended-Semibold.woff2') format('woff2'),
+       url('./fonts/RFDewiExtended-Semibold.woff') format('woff'); /* Путь к файлу шрифта */
+  font-weight: 700; /*  Определите вес шрифта (обычно 400 для Regular) */
+  font-style: normal; /*  Определите стиль шрифта (обычно normal для Regular) */
+  font-display: swap; /*  Оптимизация загрузки шрифта */
+}
+
+
+
+
+
+body {
+  font-family: 'RFDewiExtended', 'sans-serif';
+}
+
