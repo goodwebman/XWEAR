@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { slides } from '../../data'
 
 const Slider = () => {
@@ -30,11 +30,18 @@ const Slider = () => {
 		}
 	}
 
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setCurrentSlide(prev=> (prev === slides.length - 1 ? 0 : prev + 1))
+		}, 5000)
+	return () => clearInterval(interval)
+	})
+
 	return (
 		<div className='mt-[50px] w-full px-[40px] max-[700px]:px-[20px]'>
 			<div className='relative w-full  max-w-[1500px] mx-auto overflow-hidden '>
 				<div
-					className='relative    flex transition-transform duration-300 ease-in-out'
+					className='relative    flex transition-transform duration-700 ease-in-out'
 					style={{ transform: `translateX(-${currentSlide * 100}%)` }}
 				>
 					{slides.map((slide, index) => (

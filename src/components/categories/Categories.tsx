@@ -1,52 +1,32 @@
 import { useEffect, useState } from 'react'
-import { shoes } from '../../data'
 import CategoriesItem from './CategoriesItem'
 import Pagination from './Pagination'
+import usePagination from '../../hooks/usePaginationProps'
 
-const Categories = ({ cat }: { cat: string }) => {
-	const [currentPage, setCurrentPage] = useState(0)
-	const [itemsPerPage, setItemsPerPage] = useState(4)
+interface Item {
+	cat: string;
+	img: string;
+	model: string;
+	price: number;
+    id: string;
+    
+}
 
-	useEffect(() => {
-		const handleResize = () => {
-			const screenWidth = window.innerWidth
+interface MyComponentProps {
+  data: Item[];
+  cat: string;
+}
 
-			if (screenWidth > 950) {
-				setItemsPerPage(4)
-			} else if (screenWidth < 950 && screenWidth > 650) {
-				setItemsPerPage(3)
-			} else if (screenWidth < 650) {
-				setItemsPerPage(2)
-			}
-		}
-
-		handleResize()
-
-		window.addEventListener('resize', handleResize)
-		return () => window.removeEventListener('resize', handleResize)
-	}, [itemsPerPage])
-
-	const totalItems = shoes.length
-	const totalPages = Math.ceil(totalItems / itemsPerPage)
-
-	const nextPage = () => {
-		setCurrentPage(prev => (prev + 1) % totalPages)
-	}
-
-	const prevPage = () => {
-		setCurrentPage(prev => (prev - 1 + totalPages) % totalPages)
-	}
-
-	const goToPage = page => {
-		setCurrentPage(page)
-	}
-
-	const getCurrentItems = () => {
-		const startIndex = currentPage * itemsPerPage
-		return shoes.slice(startIndex, startIndex + itemsPerPage)
-	}
-
-	const currentItems = getCurrentItems()
+const Categories = ({ cat, data} : MyComponentProps) => {
+	const {
+        currentPage,
+        itemsPerPage,
+        totalPages,
+        nextPage,
+        prevPage,
+        goToPage,
+        currentItems,
+    } = usePagination<Item>({ data });
 
 	return (
 		<section className='px-[20px] max-w-[1362px] m-auto mt-[50px]'>
@@ -67,7 +47,13 @@ const Categories = ({ cat }: { cat: string }) => {
 					))}
 				</div>
 
-				<Pagination prevPage={prevPage} nextPage={nextPage} totalPages={totalPages} goToPage={goToPage} currentPage={currentPage}/>
+				<Pagination
+					prevPage={prevPage}
+					nextPage={nextPage}
+					totalPages={totalPages}
+					goToPage={goToPage}
+					currentPage={currentPage}
+				/>
 			</div>
 		</section>
 	)

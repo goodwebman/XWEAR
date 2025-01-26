@@ -1,6 +1,6 @@
 export function handsomePrice(number: number): string {
 	if (number <= 1000) {
-		return String(number) // Возвращаем число как строку, если оно меньше или равно 1000
+		return String(number) 
 	}
 
 	const numberString = String(number)
