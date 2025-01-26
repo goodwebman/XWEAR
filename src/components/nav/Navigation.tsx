@@ -86,7 +86,7 @@ const Navigation = () => {
 
 				{isMenuOpen && (
 					<div
-						className='fixed inset-0  bg-black/50 transition-opacity duration-300 ease-in-out'
+						className='fixed inset-0   transition-opacity duration-300 ease-in-out'
 						onClick={toggleMenu}
 					></div>
 				)}
@@ -94,7 +94,7 @@ const Navigation = () => {
 				<nav
 					className={`${
 						isMenuOpen ? 'left-0' : 'left-[-100%]'
-					}  hidden max-[770px]:block fixed top-0  w-[55%] h-full bg-[#121214] overflow-auto z-10  duration-300`}
+					}  hidden max-[770px]:block fixed top-0  w-[100%] h-full bg-[#121214] overflow-auto z-10  duration-300`}
 				>
 					<button onClick={toggleMenu} className='cursor-pointer p-4'>
 						<svg

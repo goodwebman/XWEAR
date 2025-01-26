@@ -1,8 +1,9 @@
+import AboutUs from './components/about/AboutUs'
 import Categories from './components/categories/Categories'
 import Navigation from './components/nav/Navigation'
 import Price from './components/price/Price'
 import Slider from './components/slider/Slider'
-import {shoes, clothes, accessories} from './data'
+import { accessories, clothes, shoes } from './data'
 
 function App() {
 	return (
@@ -13,6 +14,8 @@ function App() {
 			<Categories data={clothes} cat={'Одежда'} />
 			<Categories data={accessories} cat={'Аксессуары'} />
 			<Price />
+			<AboutUs />
+			
 		</>
 	)
 }
