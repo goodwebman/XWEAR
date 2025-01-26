@@ -20,7 +20,6 @@ interface MyComponentProps {
 const Categories = ({ cat, data} : MyComponentProps) => {
 	const {
         currentPage,
-        itemsPerPage,
         totalPages,
         nextPage,
         prevPage,
@@ -43,6 +42,7 @@ const Categories = ({ cat, data} : MyComponentProps) => {
 							img={shoe.img}
 							model={shoe.model}
 							price={shoe.price}
+							
 						/>
 					))}
 				</div>

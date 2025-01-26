@@ -47,7 +47,16 @@
 }
 
 
-
+.gradient {
+  background-image: linear-gradient(
+    to right,
+    #0d99f8,
+    #21a0f8,
+    #54b5ff,
+    #0dbbf8,
+    #0ddbf8
+  );
+}
 
 
 body {

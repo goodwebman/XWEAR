@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { slides } from '../../data'
+import CustomButton from '../CustomButton'
+
 
 const Slider = () => {
 	const [currentSlide, setCurrentSlide] = useState(0)
@@ -63,23 +65,7 @@ const Slider = () => {
 									{slide.description}
 								</p>
 
-								<button className='bg-[#121214] hover:bg-black/90 hover:shadow-2xl border-[2px] border-black  inline-flex duration-300 text-white font-bold  rounded-[10px] gap-[23px] px-[27px] py-[20px] whitespace-nowrap cursor-pointer max-[400px]:py-[10px] max-[400px]:gap-[5px] max-[400px]:px-[16px] hover:stroke-black '>
-									<span>{slide.buttonText}</span>
-									<svg
-										xmlns='http://www.w3.org/2000/svg'
-										fill='none'
-										viewBox='0 0 24 24'
-										strokeWidth='1.5'
-										stroke='white'
-										className='w-[18px] h-[26px]  '
-									>
-										<path
-											strokeLinecap='round'
-											strokeLinejoin='round'
-											d='m8.25 4.5 7.5 7.5-7.5 7.5'
-										/>
-									</svg>
-								</button>
+								<CustomButton buttonText='Перейти в каталог' />
 
 								<div className='flex items-center gap-[15px] pb-[50px] pt-[63px]'>
 									<button
