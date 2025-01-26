@@ -48,7 +48,7 @@ const Navigation = () => {
 							xmlns='http://www.w3.org/2000/svg'
 							fill='none'
 							viewBox='0 0 24 24'
-							stroke-width='1.5'
+							strokeWidth='1.5'
 							stroke='white'
 							className='size-6'
 						>
@@ -71,7 +71,7 @@ const Navigation = () => {
 							xmlns='http://www.w3.org/2000/svg'
 							fill='none'
 							viewBox='0 0 24 24'
-							stroke-width='1.5'
+							strokeWidth='1.5'
 							stroke='white'
 							className='size-6'
 						>
@@ -101,7 +101,7 @@ const Navigation = () => {
 							xmlns='http://www.w3.org/2000/svg'
 							fill='none'
 							viewBox='0 0 24 24'
-							stroke-width='1.5'
+							strokeWidth='1.5'
 							stroke='white'
 							className='size-6'
 						>
@@ -136,7 +136,6 @@ const Navigation = () => {
 								className=' text-white font-[600] leading-[17px]  relative before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-white before:transition-all pb-[6px] before:duration-500 before:ease-in-out group-hover:before:w-full'
 							>
 								{item.name}
-								
 							</Link>
 						</li>
 					))}

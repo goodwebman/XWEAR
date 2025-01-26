@@ -1,39 +1,5 @@
 import { useRef, useState } from 'react'
-
-const slides = [
-	{
-		id: 1,
-		title: 'Широкий ассортимент Одежды',
-		description: 'Одежда от известные брендов у нас в каталоге. Только качественные вещи.',
-		buttonText: 'Перейти в каталог',
-		image: 'slider-bg.jpg',
-	},
-	{
-		id: 2,
-
-		title: 'Широкий ассортимент Одежды',
-		description:
-			'Одежда от известные брендов у нас в каталоге. Только качественные вещи.',
-		buttonText: 'Перейти в каталог',
-		image: 'slider-bg.jpg',
-	},
-	{
-		id: 3,
-		title: 'Широкий ассортимент Одежды',
-		description:
-			'Одежда от известные брендов у нас в каталоге. Только качественные вещи.',
-		buttonText: 'Перейти в каталог',
-		image: 'slider-bg.jpg',
-	},
-	{
-		id: 3,
-		title: 'Широкий ассортимент Одежды',
-		description:
-			'Одежда от известные брендов у нас в каталоге. Только качественные вещи.',
-		buttonText: 'Перейти в каталог',
-		image: 'slider-bg.jpg',
-	},
-]
+import { slides } from '../../data'
 
 const Slider = () => {
 	const [currentSlide, setCurrentSlide] = useState(0)
@@ -65,7 +31,7 @@ const Slider = () => {
 	}
 
 	return (
-		<div className='mt-[50px] w-full px-[40px] '>
+		<div className='mt-[50px] w-full px-[40px] max-[700px]:px-[20px]'>
 			<div className='relative w-full  max-w-[1500px] mx-auto overflow-hidden '>
 				<div
 					className='relative    flex transition-transform duration-300 ease-in-out'
@@ -74,7 +40,7 @@ const Slider = () => {
 					{slides.map((slide, index) => (
 						<div
 							key={index}
-							className='w-full h-full rounded-2xl max-[700px]:!bg-[-500px] max-[660px]:!bg-[-400px]  max-[630px]:!bg-[-500px] max-[570px]:!bg-[-550px] max-[490px]:!bg-[-600px] max-[390px]:!bg-[-750px] flex-shrink-0 object-left '
+							className='w-full h-full rounded-2xl max-[700px]:!bg-[-500px] max-[660px]:!bg-[-400px]  max-[630px]:!bg-[-500px] max-[570px]:!bg-[-550px] max-[490px]:!bg-[-600px] max-[390px]:!bg-[-650px] flex-shrink-0 object-left '
 							style={{
 								backgroundImage: `url(${slide.image})`,
 								backgroundSize: 'cover',
@@ -117,7 +83,7 @@ const Slider = () => {
 											xmlns='http://www.w3.org/2000/svg'
 											fill='none'
 											viewBox='0 0 24 24'
-											stroke-width='1.5'
+											strokeWidth='1.5'
 											stroke='currentColor'
 											className='size-6'
 										>
@@ -136,7 +102,7 @@ const Slider = () => {
 											xmlns='http://www.w3.org/2000/svg'
 											fill='none'
 											viewBox='0 0 24 24'
-											stroke-width='1.5'
+											strokeWidth='1.5'
 											stroke='currentColor'
 											className='w-[24px] h-[28px]'
 										>
