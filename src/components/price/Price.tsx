@@ -2,7 +2,7 @@ import CustomButton from '../CustomButton'
 
 const Price = () => {
 	return (
-		<section className='px-[20px] '>
+		<section className='px-[20px] mt-[80px]'>
 			<div className='max-w-[1500px] mx-auto gradient flex relative rounded-xl '>
 				<div className=' py-[100px] flex-col  max-[1000px]:py-[50px] px-[90px] max-[900px]:px-[40px] max-[400px]:px-[15px]  '>
 					<h1 className='uppercase font-[900] max-[580px]:text-[40px]  text-[52px] leading-[63px] text-white max-[580px]:text-center max-[467px]:text-[35px] max-[420px]:text-[30px] max-[575px]:leading-[40px]'>

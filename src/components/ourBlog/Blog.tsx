@@ -1,24 +1,27 @@
 import React, { useState } from 'react'
 
 import Pagination from '../Pagination'
-import CategoriesItem from './CategoriesItem'
+
 import usePagination from '../../hooks/usePaginationProps'
+import BlogItem from './BlogItem'
 
 interface Item {
   cat: string
   img: string
-  model: string
-  price: number
-  id: string
+  desk: string
+  title: string
+  id: number
+  
 }
 
 interface MyComponentProps {
   data: Item[]
   cat: string
   moreButton: string
+  isBlog?: boolean
 }
 
-const Categories = ({ cat, data, moreButton }: MyComponentProps) => {
+const Blog = ({ cat, data, moreButton, isBlog }: MyComponentProps) => {
   const [showPagination, setShowPagination] = useState(true)
   const {
     currentPage,
@@ -28,7 +31,7 @@ const Categories = ({ cat, data, moreButton }: MyComponentProps) => {
     goToPage,
     currentItems,
     showAll,
-  } = usePagination<Item>({ data })
+  } = usePagination<Item>({ data, isBlog })
 
   const handleShowAll = () => {
     showAll()
@@ -38,7 +41,7 @@ const Categories = ({ cat, data, moreButton }: MyComponentProps) => {
   return (
     <section className='px-[20px] max-w-[1362px] m-auto mt-[50px]'>
       <div className='flex justify-between items-center'>
-        <h1 className='font-[900] max-[390px]:text-[20px] text-[32px] uppercase leading-[42px] max-[500px]:text-[25px] text-[#121214]'>
+        <h1 className='font-[900] text-[32px] uppercase leading-[42px] max-[500px]:text-[25px] text-[#121214]'>
           {cat}
         </h1>
 
@@ -46,8 +49,8 @@ const Categories = ({ cat, data, moreButton }: MyComponentProps) => {
           onClick={handleShowAll}
           className='flex gap-[8px] items-center cursor-pointer'
         >
-          <h1 className='uppercase font-[900] max-[390px]:text-[13px] text-[14px] text-black leading-[23px]'>
-            {showPagination ? "Больше" : "Меньше"}  <span className='max-[600px]:hidden'>{moreButton}</span>
+          <h1 className='uppercase font-[900] text-[14px] text-black leading-[23px]'>
+            {showPagination ? "Больше" : "Меньше"} <span className='max-[600px]:hidden'>{moreButton}</span>
           </h1>
 
           <div className='text-[24px]'>
@@ -70,14 +73,12 @@ const Categories = ({ cat, data, moreButton }: MyComponentProps) => {
       </div>
 
       <div className='relative flex flex-col items-center mt-[10px]'>
-        <div className='grid max-[950px]:grid-cols-3 max-[650px]:grid-cols-2 grid-cols-4 gap-4 items-baseline'>
-          {currentItems.map((shoe) => (
-            <CategoriesItem
-              key={shoe.id}
-              id={shoe.id}
-              img={shoe.img}
-              model={shoe.model}
-              price={shoe.price}
+        <div className='grid grid-cols-3 max-[1050px]:grid-cols-2 max-[700px]:grid-cols-1 gap-[30px]  items-baseline'>
+          {currentItems.map((blog) => (
+            <BlogItem
+				  key={blog.id}
+				  id={blog.id}
+				  img={blog.img} title={blog.title} desk={blog.desk}              
             />
           ))}
         </div>
@@ -89,6 +90,7 @@ const Categories = ({ cat, data, moreButton }: MyComponentProps) => {
             totalPages={totalPages}
             goToPage={goToPage}
             currentPage={currentPage}
+			
           />
         )}
       </div>
@@ -96,4 +98,4 @@ const Categories = ({ cat, data, moreButton }: MyComponentProps) => {
   )
 }
 
-export default Categories
+export default Blog
