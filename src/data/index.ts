@@ -394,3 +394,36 @@ export const ourBlog = [
 		desk: 'Мы запускаем акцию. Готовься к осени с лета. На протяжении всего лета покупайте женские осенние вещи со скидками.',
 	},
 ]
+
+export const accordionItems = [
+    {
+      title: 'Информация',
+      links: [
+		{ text: 'Блог', href: '/blog' },
+		{ text: 'Контакты', href: '/contacts' },
+		{ text: 'Доставка', href: '/delivery' },
+		{ text: 'Оплата', href: '/payment' },
+		{ text: 'FAQ', href: '/faq' },
+	  ],
+    },
+    {
+      title: 'Каталог',
+      links: [
+		{ text: 'Блог', href: '/blog' },
+		{ text: 'Контакты', href: '/contacts' },
+		{ text: 'Доставка', href: '/delivery' },
+		{ text: 'Оплата', href: '/payment' },
+		{ text: 'FAQ', href: '/faq' },
+	  ],
+    },
+    {
+      title: 'Контакты',
+      links: [
+		{ text: 'Блог', href: '/blog' },
+		{ text: 'Контакты', href: '/contacts' },
+		{ text: 'Доставка', href: '/delivery' },
+		{ text: 'Оплата', href: '/payment' },
+		{ text: 'FAQ', href: '/faq' },
+	  ],
+    },
+  ];

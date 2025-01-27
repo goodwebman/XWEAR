@@ -5,6 +5,7 @@ import Blog from './components/ourBlog/Blog'
 import Price from './components/price/Price'
 import Slider from './components/slider/Slider'
 import { accessories, clothes, shoes, ourBlog } from './data'
+import Footer from './footer/Footer'
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 			<Price />
 			<AboutUs />
 			<Blog moreButton='статей' isBlog={true} data={ourBlog} cat='Наш Блог' />
+			<Footer />
 			
 		</>
 	)

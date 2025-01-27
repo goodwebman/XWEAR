@@ -73,7 +73,7 @@ const Blog = ({ cat, data, moreButton, isBlog }: MyComponentProps) => {
       </div>
 
       <div className='relative flex flex-col items-center mt-[10px]'>
-        <div className='grid grid-cols-3 max-[1050px]:grid-cols-2 max-[700px]:grid-cols-1 gap-[30px]  items-baseline'>
+        <div className='grid grid-cols-3 max-[1051px]:grid-cols-2 max-[700px]:grid-cols-1 gap-[30px]  items-baseline'>
           {currentItems.map((blog) => (
             <BlogItem
 				  key={blog.id}
