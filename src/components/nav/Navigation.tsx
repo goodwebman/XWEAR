@@ -1,8 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
+import { initialProducts } from '../../data'
+
+interface NavItem {
+	name: string
+	path: string
+	dropdown?: NavItem[]
+}
 
 const Navigation = () => {
-	// const [toggleSearch, setToggleSearch] = useState<boolean>(false)
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
 	const menuRef = useRef<HTMLDivElement>(null)
@@ -16,13 +22,6 @@ const Navigation = () => {
 		}
 	}
 
-	const navItems = [
-		{ name: 'Каталог', path: '/catalog' },
-
-		{ name: 'Расчет стоимости', path: '/pricing' },
-		{ name: 'Информация', path: '/information' },
-	]
-
 	useEffect(() => {
 		if (isMenuOpen) {
 			document.addEventListener('mousedown', handleClickOutside)
@@ -34,6 +33,81 @@ const Navigation = () => {
 			document.removeEventListener('mousedown', handleClickOutside)
 		}
 	}, [isMenuOpen])
+
+	//updaTE
+
+	const navigate = useNavigate()
+	const [types, setTypes] = useState<string[]>([])
+	const [navItems, setNavItems] = useState<NavItem[]>([])
+	const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+	const dropdownRef = useRef<HTMLDivElement | null>(null)
+
+	useEffect(() => {
+        const uniqueTypes = [...new Set(initialProducts.map(product => product.type))].map(type => type.toLowerCase())
+           setTypes(uniqueTypes)
+          const initialNavItems = [
+                  {
+                      name: 'Каталог',
+                      path: '/catalog',
+                      dropdown: uniqueTypes.map((type) => ({ name: type.charAt(0).toUpperCase() + type.slice(1), path: `/catalog/${type}` }))
+                  },
+                  {
+                      name: 'Расчет стоимости',
+                      path: '/pricing'
+                  },
+                  {
+                      name: 'Информация',
+                      path: '/information',
+                      dropdown: [
+                          { name: 'Контакты', path: '/information/contact' },
+                          { name: 'О нас', path: '/information/about' }
+                      ]
+                  },
+              ];
+          setNavItems(initialNavItems);
+
+      }, [])
+
+	const handleToggleDropdown = (name: string) => {
+		setOpenDropdown(openDropdown === name ? null : name)
+	}
+
+	const handleNavClick = (path: string) => {
+		setOpenDropdown(null)
+		navigate(path)
+	}
+
+	// update
+
+	// const [isOpen, setIsOpen] = useState<boolean>(false)
+	// const dropdownRef = useRef<HTMLDivElement | null>(null)
+	// const navigate = useNavigate()
+	// const [types, setTypes] = useState<string[]>([])
+	// useEffect(() => {
+	// 	const uniqueTypes = [
+	// 		...new Set(initialProducts.map(product => product.type)),
+	// 	].map(type => type.toLowerCase())
+	// 	setTypes(uniqueTypes)
+	// 	if (uniqueTypes.length > 0) {
+	// 		navigate(`/catalog/${uniqueTypes[0]}`)
+	// 	}
+	// }, [navigate])
+
+	// const handleToggle = () => {
+	// 	setIsOpen(!isOpen)
+	// }
+
+	// const handleTypeClick = (type: string) => {
+	// 	navigate(`/catalog/${type}`)
+	// 	setIsOpen(false)
+	// }
+
+	// useEffect(() => {
+	// 	document.addEventListener('mousedown', handleClickOutside)
+	// 	return () => {
+	// 		document.removeEventListener('mousedown', handleClickOutside)
+	// 	}
+	// }, [])
 
 	return (
 		<nav className='bg-[#121214]'>
@@ -65,7 +139,7 @@ const Navigation = () => {
 
 					<button
 						onClick={toggleMenu}
-						className='hidden max-[960px]:block cursor-pointer max-[500px]:hidden'
+						className='hidden max-[970px]:block cursor-pointer max-[500px]:hidden'
 					>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
@@ -94,7 +168,7 @@ const Navigation = () => {
 				<nav
 					className={`${
 						isMenuOpen ? 'left-0' : 'left-[-100%]'
-					}  hidden max-[770px]:block fixed top-0  w-[100%] h-full bg-[#121214] overflow-auto z-10  duration-300`}
+					}    fixed top-0  w-[100%] h-full bg-[#121214] overflow-auto z-10  duration-300`}
 				>
 					<button onClick={toggleMenu} className='cursor-pointer p-4'>
 						<svg
@@ -127,16 +201,48 @@ const Navigation = () => {
 					</ul>
 				</nav>
 
-				{/* NAV ITEMS */}
-				<ul className='flex max-[970px]:hidden items-center gap-[48px]'>
-					{navItems.map(item => (
-						<li key={item.path} className='relative group'>
-							<Link
+				{/* <Link
 								to={item.path}
 								className=' text-white font-[600] leading-[17px]  relative before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-white before:transition-all pb-[6px] before:duration-500 before:ease-in-out group-hover:before:w-full'
 							>
 								{item.name}
-							</Link>
+							</Link> */}
+
+				{/* NAV ITEMS */}
+				<ul className='flex max-[970px]:hidden items-center gap-[48px]'>
+					{navItems.map(item => (
+						<li key={item.name} className='relative group'>
+							{item.dropdown ? (
+								<div ref={dropdownRef}>
+									<button
+										className='bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded focus:outline-none flex items-center'
+										onClick={() => handleToggleDropdown(item.name)}
+									>
+										{item.name}
+										<span className='ml-1'>&#9660;</span>
+									</button>
+									{openDropdown === item.name && (
+										<div className='absolute right-0 mt-2 bg-white border rounded shadow-lg z-10 w-48'>
+											{item.dropdown.map(dropdownItem => (
+												<button
+													key={dropdownItem.name}
+													className='block px-4 py-2 text-gray-800 hover:bg-gray-100 w-full text-left'
+													onClick={() => handleNavClick(dropdownItem.path)}
+												>
+													{dropdownItem.name}
+												</button>
+											))}
+										</div>
+									)}
+								</div>
+							) : (
+								<button
+									className='bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded focus:outline-none'
+									onClick={() => handleNavClick(item.path)}
+								>
+									{item.name}
+								</button>
+							)}
 						</li>
 					))}
 				</ul>

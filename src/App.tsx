@@ -1,26 +1,33 @@
-import AboutUs from './components/about/AboutUs'
-import Categories from './components/categories/Categories'
+// src/App.tsx
+import { useEffect, useState } from 'react'
+import {
+	Route,
+	BrowserRouter as Router,
+	Routes,
+	useNavigate,
+} from 'react-router-dom'
 import Navigation from './components/nav/Navigation'
-import Blog from './components/ourBlog/Blog'
-import Price from './components/price/Price'
-import Slider from './components/slider/Slider'
-import { accessories, clothes, shoes, ourBlog } from './data'
+import { initialProducts } from './data'
 import Footer from './footer/Footer'
+import CatalogPage from './pages/CatalogPage'
+import HomePage from './pages/HomePage'
 
 function App() {
+	
 	return (
-		<>
-			<Navigation />
-			<Slider />
-			<Categories moreButton='товаров' data={shoes} cat={'Обувь'} />
-			<Categories moreButton='товаров' data={clothes} cat={'Одежда'} />
-			<Categories moreButton='товаров' data={accessories} cat={'Аксессуары'} />
-			<Price />
-			<AboutUs />
-			<Blog moreButton='статей' isBlog={true} data={ourBlog} cat='Наш Блог' />
-			<Footer />
-			
-		</>
+		<section className='flex flex-col min-h-screen'>
+			<Router>
+				<div className='flex-1'>
+					<Navigation />
+					<Routes>
+						<Route path='/' element={<HomePage />} />
+
+						<Route path='/catalog/:type/*' element={<CatalogPage />} />
+					</Routes>
+				</div>
+				<Footer />
+			</Router>
+		</section>
 	)
 }
 

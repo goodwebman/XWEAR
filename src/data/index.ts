@@ -1,5 +1,7 @@
 // FOR SLIDER
 
+import { Product } from '../types'
+
 export const slides = [
 	{
 		id: 1,
@@ -396,34 +398,127 @@ export const ourBlog = [
 ]
 
 export const accordionItems = [
-    {
-      title: 'Информация',
-      links: [
-		{ text: 'Блог', href: '/blog' },
-		{ text: 'Контакты', href: '/contacts' },
-		{ text: 'Доставка', href: '/delivery' },
-		{ text: 'Оплата', href: '/payment' },
-		{ text: 'FAQ', href: '/faq' },
-	  ],
-    },
-    {
-      title: 'Каталог',
-      links: [
-		{ text: 'Блог', href: '/blog' },
-		{ text: 'Контакты', href: '/contacts' },
-		{ text: 'Доставка', href: '/delivery' },
-		{ text: 'Оплата', href: '/payment' },
-		{ text: 'FAQ', href: '/faq' },
-	  ],
-    },
-    {
-      title: 'Контакты',
-      links: [
-		{ text: 'Блог', href: '/blog' },
-		{ text: 'Контакты', href: '/contacts' },
-		{ text: 'Доставка', href: '/delivery' },
-		{ text: 'Оплата', href: '/payment' },
-		{ text: 'FAQ', href: '/faq' },
-	  ],
-    },
+	{
+		title: 'Информация',
+		links: [
+			{ text: 'Блог', href: '/blog' },
+			{ text: 'Контакты', href: '/contacts' },
+			{ text: 'Доставка', href: '/delivery' },
+			{ text: 'Оплата', href: '/payment' },
+			{ text: 'FAQ', href: '/faq' },
+		],
+	},
+	{
+		title: 'Каталог',
+		links: [
+			{ text: 'Блог', href: '/blog' },
+			{ text: 'Контакты', href: '/contacts' },
+			{ text: 'Доставка', href: '/delivery' },
+			{ text: 'Оплата', href: '/payment' },
+			{ text: 'FAQ', href: '/faq' },
+		],
+	},
+	{
+		title: 'Контакты',
+		links: [
+			{ text: 'Блог', href: '/blog' },
+			{ text: 'Контакты', href: '/contacts' },
+			{ text: 'Доставка', href: '/delivery' },
+			{ text: 'Оплата', href: '/payment' },
+			{ text: 'FAQ', href: '/faq' },
+		],
+	},
+]
+
+export  const initialProducts: Product[] = [
+	{
+	  id: '1',
+	  type: 'Обувь',
+	  category: 'Кроссовки',
+	  price: 4500,
+	  size: 41,
+	  color: 'Черный',
+	  brand: 'Nike',
+	  model: 'Court Zoom Cage 2',
+	  image: 'path/to/image1.jpg',
+	},
+	{
+	  id: '2',
+	  type: 'Обувь',
+	  category: 'Кроссовки',
+	  price: 4000,
+	  size: 42,
+	  color: 'Белый',
+	  brand: 'Nike',
+	  model: 'Air Force 1 Ultra',
+	  image: 'path/to/image2.jpg',
+	},
+	{
+		id: '3',
+		type: 'Обувь',
+		category: 'Кроссовки',
+		price: 4200,
+		size: 41,
+		color: 'Синий',
+		brand: 'Nike',
+		model: 'Air Force 1 Ultra Flyknit',
+		image: 'path/to/image3.jpg'
+	  },
+	{
+		id: '4',
+		type: 'Обувь',
+		category: 'Бутсы',
+		price: 5000,
+		size: 42,
+		color: 'Желтый',
+		brand: 'Adidas',
+		model: 'Predator',
+		 image: 'path/to/image4.jpg'
+	  },
+	  {
+	  id: '5',
+	   type: 'Обувь',
+	  category: 'Кеды',
+	  price: 3500,
+	  size: 40,
+	  color: 'Серый',
+	  brand: 'Puma',
+	  model: 'Suede Classic',
+	   image: 'path/to/image5.jpg'
+	},
+	  {
+		  id: '6',
+		  type: 'Одежда',
+		  category: 'Футболка',
+		  price: 1500,
+		  size: 'M',
+		  color: 'Красный',
+		  brand: 'Nike',
+		  model: 'Tech Pack',
+		  image: 'path/to/image6.jpg',
+	  },
+		{
+	  id: '7',
+		  type: 'Одежда',
+		category: 'Штаны',
+		price: 3000,
+		size: 'L',
+		color: 'Черный',
+		brand: 'Adidas',
+		model: 'Essentials',
+		image: 'path/to/image7.jpg',
+	  },
+		{
+			id: '8',
+			type: 'Аксессуары',
+			category: 'Часы',
+			price: 7000,
+			size: 'one size',
+			color: 'Серебристый',
+			brand: 'Casio',
+			model: 'G-Shock',
+			 image: 'path/to/image8.jpg',
+		},
+	  //... и т.д.
   ];
+  

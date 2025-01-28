@@ -39,7 +39,7 @@ const Blog = ({ cat, data, moreButton, isBlog }: MyComponentProps) => {
   }
 
   return (
-    <section className='px-[20px] max-w-[1362px] m-auto mt-[50px]'>
+    <section className='px-[20px] max-w-[1362px] m-auto mt-[50px] mb-[120px]'>
       <div className='flex justify-between items-center'>
         <h1 className='font-[900] text-[32px] uppercase leading-[42px] max-[500px]:text-[25px] text-[#121214]'>
           {cat}
