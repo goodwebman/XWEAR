@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Filters } from '../../types';
 
 interface ModelFilterProps {
     models: string[];
     onFilterChange: (filters: Partial<Filters>) => void;
+      initialFilters?: Partial<Filters>;
 }
 
-
-function ModelFilter({ models, onFilterChange }: ModelFilterProps) {
+function ModelFilter({ models, onFilterChange, initialFilters }: ModelFilterProps) {
     const [selectedModels, setSelectedModels] = useState<string[]>([]);
+
 
     const handleModelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const model = e.target.value;
@@ -23,25 +24,30 @@ function ModelFilter({ models, onFilterChange }: ModelFilterProps) {
         setSelectedModels(updatedModels);
         onFilterChange({model: updatedModels})
     }
-
+    useEffect(() => {
+        if(initialFilters?.model) {
+            setSelectedModels(initialFilters.model)
+        }
+    }, [initialFilters?.model, models])
   return (
-      <div>
-           <h3 className="font-bold mb-2">Модели</h3>
-          <div className="space-y-1">
-          {models.map(model => (
-              <label key={model} className="flex items-center">
-                  <input
-                    type="checkbox"
-                    className="mr-2"
-                    value={model}
-                    checked={selectedModels.includes(model)}
-                    onChange={handleModelChange}
-                  />
-                  {model}
-              </label>
-          ))}
-         </div>
-      </div>
+
+                   <div className="max-h-40 overflow-y-auto">
+                         <div className="space-y-1">
+                                  {models.map(model => (
+                                        <label key={model} className="flex items-center">
+                                          <input
+                                            type="checkbox"
+                                            className="mr-2"
+                                            value={model}
+                                            checked={selectedModels.includes(model)}
+                                            onChange={handleModelChange}
+                                          />
+                                          {model}
+                                    </label>
+                                  ))}
+                             </div>
+                       </div>
+
   );
 }
 

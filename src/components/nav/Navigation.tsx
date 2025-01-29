@@ -43,30 +43,34 @@ const Navigation = () => {
 	const dropdownRef = useRef<HTMLDivElement | null>(null)
 
 	useEffect(() => {
-        const uniqueTypes = [...new Set(initialProducts.map(product => product.type))].map(type => type.toLowerCase())
-           setTypes(uniqueTypes)
-          const initialNavItems = [
-                  {
-                      name: 'Каталог',
-                      path: '/catalog',
-                      dropdown: uniqueTypes.map((type) => ({ name: type.charAt(0).toUpperCase() + type.slice(1), path: `/catalog/${type}` }))
-                  },
-                  {
-                      name: 'Расчет стоимости',
-                      path: '/pricing'
-                  },
-                  {
-                      name: 'Информация',
-                      path: '/information',
-                      dropdown: [
-                          { name: 'Контакты', path: '/information/contact' },
-                          { name: 'О нас', path: '/information/about' }
-                      ]
-                  },
-              ];
-          setNavItems(initialNavItems);
-
-      }, [])
+		const uniqueTypes = [
+			...new Set(initialProducts.map(product => product.type)),
+		].map(type => type.toLowerCase())
+		setTypes(uniqueTypes)
+		const initialNavItems = [
+			{
+				name: 'Каталог',
+				path: '/catalog',
+				dropdown: uniqueTypes.map(type => ({
+					name: type.charAt(0).toUpperCase() + type.slice(1),
+					path: `/catalog/${type}`,
+				})),
+			},
+			{
+				name: 'Расчет стоимости',
+				path: '/pricing',
+			},
+			{
+				name: 'Информация',
+				path: '/information',
+				dropdown: [
+					{ name: 'Контакты', path: '/information/contact' },
+					{ name: 'О нас', path: '/information/about' },
+				],
+			},
+		]
+		setNavItems(initialNavItems)
+	}, [])
 
 	const handleToggleDropdown = (name: string) => {
 		setOpenDropdown(openDropdown === name ? null : name)
@@ -77,37 +81,7 @@ const Navigation = () => {
 		navigate(path)
 	}
 
-	// update
-
-	// const [isOpen, setIsOpen] = useState<boolean>(false)
-	// const dropdownRef = useRef<HTMLDivElement | null>(null)
-	// const navigate = useNavigate()
-	// const [types, setTypes] = useState<string[]>([])
-	// useEffect(() => {
-	// 	const uniqueTypes = [
-	// 		...new Set(initialProducts.map(product => product.type)),
-	// 	].map(type => type.toLowerCase())
-	// 	setTypes(uniqueTypes)
-	// 	if (uniqueTypes.length > 0) {
-	// 		navigate(`/catalog/${uniqueTypes[0]}`)
-	// 	}
-	// }, [navigate])
-
-	// const handleToggle = () => {
-	// 	setIsOpen(!isOpen)
-	// }
-
-	// const handleTypeClick = (type: string) => {
-	// 	navigate(`/catalog/${type}`)
-	// 	setIsOpen(false)
-	// }
-
-	// useEffect(() => {
-	// 	document.addEventListener('mousedown', handleClickOutside)
-	// 	return () => {
-	// 		document.removeEventListener('mousedown', handleClickOutside)
-	// 	}
-	// }, [])
+	
 
 	return (
 		<nav className='bg-[#121214]'>

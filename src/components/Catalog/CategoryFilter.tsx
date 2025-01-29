@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
-import { Filters } from '../../types'
-
+import React, { useState, useEffect } from 'react';
+import { Filters } from '../../types';
 
 interface CategoryFilterProps {
     categories: string[];
     onFilterChange: (filters: Partial<Filters>) => void;
+      initialFilters?: Partial<Filters>;
+
 }
 
-function CategoryFilter({ categories, onFilterChange }: CategoryFilterProps) {
+function CategoryFilter({ categories, onFilterChange, initialFilters }: CategoryFilterProps) {
     const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+
 
     const handleCategoryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const category = e.target.value;
@@ -23,25 +25,28 @@ function CategoryFilter({ categories, onFilterChange }: CategoryFilterProps) {
         setSelectedCategories(updatedCategories);
         onFilterChange({category: updatedCategories})
     }
-
+      useEffect(() => {
+          if (initialFilters?.category) {
+               setSelectedCategories(initialFilters.category)
+          }
+      }, [initialFilters?.category, categories])
   return (
-      <div>
-           <h3 className="font-bold mb-2">Категория</h3>
-          <div className="space-y-1">
-          {categories.map(category => (
-              <label key={category} className="flex items-center">
-                  <input
-                    type="checkbox"
-                    className="mr-2"
-                    value={category}
-                    checked={selectedCategories.includes(category)}
-                    onChange={handleCategoryChange}
-                  />
-                  {category}
-              </label>
-          ))}
-         </div>
-      </div>
+            <div className="max-h-40 overflow-y-auto">
+                <div className="space-y-1">
+                    {categories.map(category => (
+                            <label key={category} className="flex items-center">
+                                <input
+                                    type="checkbox"
+                                    className="mr-2"
+                                    value={category}
+                                    checked={selectedCategories.includes(category)}
+                                    onChange={handleCategoryChange}
+                                />
+                                {category}
+                            </label>
+                    ))}
+                </div>
+            </div>
   );
 }
 
