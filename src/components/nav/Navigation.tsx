@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router'
+import { useNavigate } from 'react-router'
 import { initialProducts } from '../../data'
 
 interface NavItem {
@@ -77,11 +77,10 @@ const Navigation = () => {
 	}
 
 	const handleNavClick = (path: string) => {
+		setIsMenuOpen(!isMenuOpen)
 		setOpenDropdown(null)
 		navigate(path)
 	}
-
-	
 
 	return (
 		<nav className='bg-[#121214]'>
@@ -134,7 +133,7 @@ const Navigation = () => {
 
 				{isMenuOpen && (
 					<div
-						className='fixed inset-0   transition-opacity duration-300 ease-in-out'
+						className='fixed inset-0 transition-opacity duration-300 ease-in-out'
 						onClick={toggleMenu}
 					></div>
 				)}
@@ -142,9 +141,9 @@ const Navigation = () => {
 				<nav
 					className={`${
 						isMenuOpen ? 'left-0' : 'left-[-100%]'
-					}    fixed top-0  w-[100%] h-full bg-[#121214] overflow-auto z-10  duration-300`}
+					}    fixed top-0 min-[970px]:hidden  w-[100%] h-full bg-[#121214] overflow-auto z-10  duration-300`}
 				>
-					<button onClick={toggleMenu} className='cursor-pointer p-4'>
+					<button onClick={toggleMenu} className='cursor-pointer p-4 '>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
 							fill='none'
@@ -161,15 +160,74 @@ const Navigation = () => {
 						</svg>
 					</button>
 
-					<ul className='p-[10px_40px] flex flex-col gap-[50px]'>
+					<ul className='flex flex-col pl-[20px] justify-start  gap-[48px]'>
 						{navItems.map(item => (
-							<li key={item.path} className='relative'>
-								<Link
-									to={item.path}
-									className='text-white font-[600] leading-[17px]'
-								>
-									{item.name}
-								</Link>
+							<li key={item.name} className='relative group'>
+								{item.dropdown ? (
+									<div ref={dropdownRef}>
+										<button
+											className=' text-white gap-[4px] py-2  rounded focus:outline-none flex items-center'
+											onClick={() => handleToggleDropdown(item.name)}
+										>
+											<p className='text-white font-[600] leading-[17px] cursor-pointer'>
+												{item.name}
+											</p>
+											<div>
+												{openDropdown ? (
+													<svg
+														xmlns='http://www.w3.org/2000/svg'
+														fill='none'
+														viewBox='0 0 24 24'
+														stroke-width='1.5'
+														stroke='white'
+														className='size-4 opacity-60'
+													>
+														<path
+															strokeLinecap='round'
+															strokeLinejoin='round'
+															d='m4.5 15.75 7.5-7.5 7.5 7.5'
+														/>
+													</svg>
+												) : (
+													<svg
+														xmlns='http://www.w3.org/2000/svg'
+														fill='none'
+														viewBox='0 0 24 24'
+														stroke-width='1.5'
+														stroke='white'
+														className='size-4 opacity-60'
+													>
+														<path
+															strokeLinecap='round'
+															strokeLinejoin='round'
+															d='m19.5 8.25-7.5 7.5-7.5-7.5'
+														/>
+													</svg>
+												)}
+											</div>
+										</button>
+										{openDropdown === item.name && (
+											<div className=' flex flex-col pt-[20px] gap-[15px] mt-2 bg-[#121214]  rounded shadow-lg z-10 p-[20] w-[200px]  h-48'>
+												{item.dropdown.map(dropdownItem => (
+													<button
+														key={dropdownItem.name}
+														className='block px-4 py-2 cursor-pointer text-white hover:underline w-full text-left'
+														onClick={() => handleNavClick(dropdownItem.path)}
+													>
+														{dropdownItem.name}
+													</button>
+												))}
+											</div>
+										)}
+									</div>
+								) : (
+									<button
+										className='  text-white font-[600] leading-[17px]  relative before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-white before:transition-all pb-[6px] before:duration-500 before:ease-in-out group-hover:before:w-full cursor-pointer'
+										onClick={() => handleNavClick(item.path)}
+									>
+										{item.name}
+									</button>
+								)}
 							</li>
 						))}
 					</ul>
@@ -189,18 +247,52 @@ const Navigation = () => {
 							{item.dropdown ? (
 								<div ref={dropdownRef}>
 									<button
-										className='bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded focus:outline-none flex items-center'
+										className=' text-white gap-[4px] py-2 px-4 rounded focus:outline-none flex items-center'
 										onClick={() => handleToggleDropdown(item.name)}
 									>
-										{item.name}
-										<span className='ml-1'>&#9660;</span>
+										<p className='text-white font-[600] leading-[17px] cursor-pointer'>
+											{item.name}
+										</p>
+										<div>
+											{openDropdown ? (
+												<svg
+													xmlns='http://www.w3.org/2000/svg'
+													fill='none'
+													viewBox='0 0 24 24'
+													stroke-width='1.5'
+													stroke='white'
+													className='size-4 opacity-60'
+												>
+													<path
+														strokeLinecap='round'
+														strokeLinejoin='round'
+														d='m4.5 15.75 7.5-7.5 7.5 7.5'
+													/>
+												</svg>
+											) : (
+												<svg
+													xmlns='http://www.w3.org/2000/svg'
+													fill='none'
+													viewBox='0 0 24 24'
+													stroke-width='1.5'
+													stroke='white'
+													className='size-4 opacity-60'
+												>
+													<path
+														strokeLinecap='round'
+														strokeLinejoin='round'
+														d='m19.5 8.25-7.5 7.5-7.5-7.5'
+													/>
+												</svg>
+											)}
+										</div>
 									</button>
 									{openDropdown === item.name && (
-										<div className='absolute right-0 mt-2 bg-white border rounded shadow-lg z-10 w-48'>
+										<div className='absolute flex flex-col pt-[20px] gap-[15px] mt-2 bg-[#121214]  rounded shadow-lg z-10 py-[20px] w-[200px]  '>
 											{item.dropdown.map(dropdownItem => (
 												<button
 													key={dropdownItem.name}
-													className='block px-4 py-2 text-gray-800 hover:bg-gray-100 w-full text-left'
+													className='block px-4 py-2 cursor-pointer text-white hover:underline w-full text-left'
 													onClick={() => handleNavClick(dropdownItem.path)}
 												>
 													{dropdownItem.name}
@@ -211,7 +303,7 @@ const Navigation = () => {
 								</div>
 							) : (
 								<button
-									className='bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded focus:outline-none'
+									className='  text-white font-[600] leading-[17px]  relative before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-white before:transition-all pb-[6px] before:duration-500 before:ease-in-out group-hover:before:w-full cursor-pointer'
 									onClick={() => handleNavClick(item.path)}
 								>
 									{item.name}
