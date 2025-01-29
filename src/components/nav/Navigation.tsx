@@ -84,7 +84,7 @@ const Navigation = () => {
 
 	return (
 		<nav className='bg-[#121214]'>
-			<div className='max-w-[1200px] px-[30px] m-auto py-[32px] flex items-center justify-between'>
+			<div className='max-w-[1300px] px-[30px] m-auto py-[32px] flex items-center justify-between'>
 				{/* LOGO */}
 				<div className='flex gap-[54px] max-[400px]:gap-[20px]'>
 					<button

@@ -31,8 +31,8 @@ function CategoryFilter({ categories, onFilterChange, initialFilters }: Category
           }
       }, [initialFilters?.category, categories])
   return (
-            <div className="max-h-40 overflow-y-auto">
-                <div className="space-y-1">
+            <div className="max-h-[267px] overflow-y-auto">
+                <div className="flex flex-col gap-[20px]">
                     {categories.map(category => (
                             <label key={category} className="flex items-center">
                                 <input

@@ -4,16 +4,21 @@ import Pagination from '../Pagination'
 import CategoriesItem from './CategoriesItem'
 import usePagination from '../../hooks/usePaginationProps'
 
-interface Item {
-  cat: string
-  img: string
-  model: string
-  price: number
-  id: string
+interface Product {
+  id: string;
+  type: string;
+  category: string;
+  price: number;
+  size: number | string;
+  color: string;
+  brand: string;
+  model: string;
+  image: string;
 }
 
+
 interface MyComponentProps {
-  data: Item[]
+  data: Product[]
   cat: string
   moreButton: string
 }
@@ -28,7 +33,7 @@ const Categories = ({ cat, data, moreButton }: MyComponentProps) => {
     goToPage,
     currentItems,
     showAll,
-  } = usePagination<Item>({ data })
+  } = usePagination<Product>({ data })
 
   const handleShowAll = () => {
     showAll()
@@ -39,6 +44,7 @@ const Categories = ({ cat, data, moreButton }: MyComponentProps) => {
     <section className='px-[20px] max-w-[1362px] m-auto mt-[50px]'>
       <div className='flex justify-between items-center'>
         <h1 className='font-[900] max-[390px]:text-[20px] text-[32px] uppercase leading-[42px] max-[500px]:text-[25px] text-[#121214]'>
+          
           {cat}
         </h1>
 
@@ -75,9 +81,10 @@ const Categories = ({ cat, data, moreButton }: MyComponentProps) => {
             <CategoriesItem
               key={shoe.id}
               id={shoe.id}
-              img={shoe.img}
+              img={shoe.image}
               model={shoe.model}
               price={shoe.price}
+              brand={shoe.brand}
             />
           ))}
         </div>

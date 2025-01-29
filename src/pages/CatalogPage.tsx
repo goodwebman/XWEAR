@@ -1,10 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
-import { Breadcrumb, Filters } from '../types'
-import { initialProducts } from '../data'
 import Filter from '../components/catalog/Filter'
 import ProductList from '../components/catalog/ProductList'
-
+import { initialProducts } from '../data'
+import { Breadcrumb, Filters } from '../types'
 
 function CatalogPage() {
 	const { type } = useParams<{ type: string }>()
@@ -30,7 +29,6 @@ function CatalogPage() {
 		{ name: 'Каталог товаров' },
 		{
 			name: type.charAt(0).toUpperCase() + type.slice(1),
-			
 		},
 	]
 
@@ -151,9 +149,8 @@ function CatalogPage() {
 		setFilters({ ...filters, ...newFilters })
 	}
 
-	
 	return (
-		<div className='max-w-[1200px] mx-auto px-[20px]'>
+		<div className='max-w-[1300px] mx-auto px-[20px]'>
 			<div className='b p-2'>
 				{breadcrumbs.map((crumb, index) => (
 					<span key={index}>
@@ -163,7 +160,13 @@ function CatalogPage() {
 				))}
 			</div>
 			<div className='flex flex-row '>
-				<div className='w-1/4 p-4 bg-gray-100'>
+				<div className='w-1/4 p-4 '>
+					<Filter
+						onFilterChange={handleFilterChange}
+						products={typeProducts}
+						initialFilters={filters}
+					/>
+
 					<div className='mb-4'>
 						<button
 							className='bg-gray-400 hover:bg-gray-500 text-white py-2 px-4 rounded focus:outline-none'
@@ -172,11 +175,6 @@ function CatalogPage() {
 							Сбросить все фильтры
 						</button>
 					</div>
-					<Filter
-						onFilterChange={handleFilterChange}
-						products={typeProducts}
-						initialFilters={filters}
-					/>
 				</div>
 				<div className='w-3/4 p-4 '>
 					<div className='mb-4'>

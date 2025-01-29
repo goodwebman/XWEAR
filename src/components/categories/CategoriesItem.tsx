@@ -6,9 +6,10 @@ type Props = {
 	img: string
 	model: string
 	price: number
+	brand?: string
 }
 
-const CategoriesItem = ({ id, img, model, price }: Props) => {
+const CategoriesItem = ({ id, img, model, price, brand }: Props) => {
 	const { favorites, addFavorite, removeFavorite } = useFavoritesStore()
 
 	const isFavorite = favorites.includes(id)
@@ -44,7 +45,7 @@ const CategoriesItem = ({ id, img, model, price }: Props) => {
 			</div>
 
 			<h2 className='font-[800] text-[20px] leading-[25px] pb-[5px]'>
-				{model}
+				{brand} {model}
 			</h2>
 			<p className='text-[16px] font-[400] align-text-bottom'>
 				от {handsomePrice(price)} ₽
