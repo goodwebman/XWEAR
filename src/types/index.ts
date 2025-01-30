@@ -8,6 +8,7 @@ export interface Product {
     brand: string;
     model: string;
     image: string;
+    colorHex: string;
   }
   
   export interface Filters {

@@ -56,9 +56,11 @@ function SizeFilter({
 				{sortedSizes.map(size => (
 					<label
 						key={size}
-						className={`${selectedSizes.some(
-							s => s.toString() === size.toString()
-						) ? "bg-[#49D0FF] text-white" : ""} cursor-pointer flex items-center justify-center border border-[#E6E7EB] rounded-md  p-[6px_20px]`}
+						className={`${
+							selectedSizes.some(s => s.toString() === size.toString())
+								? 'bg-[#49D0FF] text-white'
+								: ''
+						} cursor-pointer flex items-center justify-center border border-[#E6E7EB] rounded-md  p-[6px_20px]`}
 					>
 						<input
 							type='checkbox'

@@ -6,7 +6,6 @@ import ColorFilter from './ColorFilter'
 import ModelFilter from './ModelFilter'
 import PriceFilter from './PriceFilter'
 import SizeFilter from './SizeFilter'
-import SortingFilter from './SortingFilter'
 
 interface FilterProps {
 	onFilterChange: (filters: Partial<Filters>) => void
@@ -41,6 +40,7 @@ function Filter({ onFilterChange, products, initialFilters }: FilterProps) {
 	const brands = getUniqueValues(products, 'brand')
 	const models = getUniqueValues(products, 'model')
 	const colors = getUniqueValues(products, 'color')
+	const colorHex = getUniqueValues(products, 'colorHex')
 	return (
 		<div className='space-y-2'>
 			<div
@@ -270,7 +270,7 @@ function Filter({ onFilterChange, products, initialFilters }: FilterProps) {
 					onClick={() => handleToggleFilter('model')}
 				>
 					<h3 className='font-[900] text-[#121214] text-[13px] uppercase '>
-					Модель
+						Модель
 					</h3>
 					<span className=''>
 						{openFilters.includes('model') ? (
@@ -309,46 +309,62 @@ function Filter({ onFilterChange, products, initialFilters }: FilterProps) {
 
 				{openFilters.includes('model') && (
 					<ModelFilter
-					models={models}
+						models={models}
 						onFilterChange={onFilterChange}
 						initialFilters={initialFilters}
 					/>
 				)}
 			</div>
 			<div
-				className={`border rounded p-2  ${
-					openFilters.includes('color') ? 'bg-gray-100' : 'bg-white'
+				className={` rounded  bg-white border border-gray-300 p-[20px_25px] flex flex-col ${
+					openFilters.includes('color') ? 'gap-[30px]' : ''
 				}`}
 			>
 				<button
 					className='w-full flex justify-between items-center'
 					onClick={() => handleToggleFilter('color')}
 				>
-					<h3 className='font-bold'>Цвета</h3>
-					<span>{openFilters.includes('color') ? '▲' : '▼'}</span>
+					<h3 className='font-[900] text-[#121214] text-[13px] uppercase '>
+						Цвет
+					</h3>
+					<span className=''>
+						{openFilters.includes('color') ? (
+							<svg
+								xmlns='http://www.w3.org/2000/svg'
+								fill='none'
+								viewBox='0 0 24 24'
+								stroke-width='1.5'
+								stroke='black'
+								className='size-4 opacity-60'
+							>
+								<path
+									strokeLinecap='round'
+									strokeLinejoin='round'
+									d='m4.5 15.75 7.5-7.5 7.5 7.5'
+								/>
+							</svg>
+						) : (
+							<svg
+								xmlns='http://www.w3.org/2000/svg'
+								fill='none'
+								viewBox='0 0 24 24'
+								stroke-width='1.5'
+								stroke='black'
+								className='size-4 opacity-60'
+							>
+								<path
+									strokeLinecap='round'
+									strokeLinejoin='round'
+									d='m19.5 8.25-7.5 7.5-7.5-7.5'
+								/>
+							</svg>
+						)}
+					</span>
 				</button>
 				{openFilters.includes('color') && (
 					<ColorFilter
 						colors={colors}
-						onFilterChange={onFilterChange}
-						initialFilters={initialFilters}
-					/>
-				)}
-			</div>
-			<div
-				className={`border rounded p-2  ${
-					openFilters.includes('sorting') ? 'bg-gray-100' : 'bg-white'
-				}`}
-			>
-				<button
-					className='w-full flex justify-between items-center'
-					onClick={() => handleToggleFilter('sorting')}
-				>
-					<h3 className='font-bold'>Сортировка</h3>
-					<span>{openFilters.includes('sorting') ? '▲' : '▼'}</span>
-				</button>
-				{openFilters.includes('sorting') && (
-					<SortingFilter
+						colorHex={colorHex}
 						onFilterChange={onFilterChange}
 						initialFilters={initialFilters}
 					/>
