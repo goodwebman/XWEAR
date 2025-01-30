@@ -35,7 +35,7 @@ function ColorFilter({
 
 	return (
 		<div className=''>
-			<div className='grid grid-cols-3 gap-x-[10px] gap-y-[10px]'>
+			<div className='grid grid-cols-3 gap-x-[10px] gap-y-[10px] scrollable-container'>
 				{colors.map((color, index) => (
 					<label
 						key={color}

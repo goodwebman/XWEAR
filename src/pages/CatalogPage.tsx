@@ -2,10 +2,15 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import Filter from '../components/catalog/Filter'
 import ProductList from '../components/catalog/ProductList'
+import Pagination from '../components/Pagination'
 import { initialProducts } from '../data'
+import usePagination from '../hooks/usePaginationProps'
 import { Filters } from '../types'
+import { handsomeItemsCount } from '../libs/handsomeItemsCount'
+
 
 function CatalogPage() {
+	const isCatalog = true
 	const { type } = useParams<{ type: string }>()
 	const [searchParams, setSearchParams] = useSearchParams()
 	const navigate = useNavigate()
@@ -142,6 +147,22 @@ function CatalogPage() {
 		setFilters({ ...filters, ...newFilters })
 	}
 
+	const {
+		currentPage,
+		itemsPerPage,
+		totalPages,
+		nextPage,
+		prevPage,
+		goToPage,
+		currentItems,
+		showAll,
+	} = usePagination({
+		data: filteredProducts,
+		isCatalog,
+	})
+
+	
+
 	return (
 		<div className='max-w-[1300px] mx-auto px-[20px]'>
 			<div className='pt-[15px] pb-[50px]'>
@@ -185,12 +206,36 @@ function CatalogPage() {
 				</div>
 				<div className='w-3/4 pl-[20px] '>
 					<div className='mb-4'>
-						<h2 className='text-2xl font-bold'>
+						<h2 className='text-[32px] font-[900]'>
 							{type.charAt(0).toUpperCase() + type.slice(1)}
 						</h2>
-						<p>{filteredProducts.length} товаров</p>
+						<p>{filteredProducts.length} {handsomeItemsCount(filteredProducts)} </p>
 					</div>
-					<ProductList products={filteredProducts} />
+					<div className='grid grid-cols-3 gap-4 mb-[40px]'>
+						{currentItems.map(product => (
+							<ProductList
+								id={product.id}
+								type={product.type}
+								category={product.category}
+								price={product.price}
+								size={product.size}
+								color={product.color}
+								brand={product.brand}
+								model={product.model}
+								image={product.image}
+								colorHex={product.colorHex}
+							/>
+						))}
+					</div>
+
+					<Pagination
+						currentPage={currentPage}
+						totalPages={totalPages}
+						nextPage={nextPage}
+						prevPage={prevPage}
+						goToPage={goToPage}
+						isCatalog={true}
+					/>
 				</div>
 			</div>
 		</div>

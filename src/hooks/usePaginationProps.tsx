@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 interface UsePaginationProps<T> {
 	data: T[]
 	isBlog?: boolean
+	isCatalog?: boolean
 	initialItemsPerPage?: number
 }
 
@@ -20,7 +21,8 @@ interface UsePaginationResult<T> {
 function usePagination<T>({
 	data,
 	isBlog,
-	initialItemsPerPage = 4,
+	initialItemsPerPage = 10,
+	isCatalog,
 }: UsePaginationProps<T>): UsePaginationResult<T> {
 	const [currentPage, setCurrentPage] = useState(0)
 	const [itemsPerPage, setItemsPerPage] = useState(initialItemsPerPage)
@@ -32,7 +34,10 @@ function usePagination<T>({
 		const screenWidth = window.innerWidth
 		let calculatedItemsPerPage: number
 
-		if (isBlog) {
+		if(isCatalog) {
+			calculatedItemsPerPage = 18
+		}
+		else if (isBlog) {
 			if (screenWidth <= 500) {
 				calculatedItemsPerPage = showAllItems ? totalItems : 1
 			} else if (screenWidth <= 1050) {

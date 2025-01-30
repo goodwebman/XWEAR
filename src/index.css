@@ -56,8 +56,6 @@
 	);
 }
 
-
-
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
 	-webkit-appearance: none;
@@ -69,40 +67,53 @@ body {
 }
 
 .checkbox {
-  display: none;
+	display: none;
 }
 
 .custom-checkbox {
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  background: #F8FAFB;
-  border-radius: 4px;
-  margin-right: 10px;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: #f8fafb;
+	border-radius: 4px;
+	margin-right: 10px;
 
-  position: relative;
+	position: relative;
 }
 
 .custom-checkbox::before {
-  content: "";
-  position: absolute;
-  display: block;
-  width:10px;
-  height: 10px;
-  background-image: url(/checkbox.svg) ;
-  background-repeat: no-repeat;
-  top: 50%;
-  left:50%;
-  transform: translate(-40%, -30%);
-  opacity: 0;
-  transition: 0.2s;
+	content: '';
+	position: absolute;
+	display: block;
+	width: 10px;
+	height: 10px;
+	background-image: url(/checkbox.svg);
+	background-repeat: no-repeat;
+	top: 50%;
+	left: 50%;
+	transform: translate(-40%, -30%);
+	opacity: 0;
+	transition: 0.2s;
 }
 
 .checkbox:checked + .custom-checkbox::before {
-  opacity: 1;
-  
+	opacity: 1;
 }
 
 .checkbox:checked + .custom-checkbox {
-  background: #49D0FF;
+	background: #49d0ff;
+}
+
+/* Стилизация контейнера с прокруткой */
+
+.scrollable-container::-webkit-scrollbar {
+	width: 5px;
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+	background: #E1E1E1;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+	background: #121214;
 }

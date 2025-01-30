@@ -33,7 +33,7 @@ function ModelFilter({
 		}
 	}, [initialFilters?.model, models])
 	return (
-		<div className='max-h-[300px] overflow-y-auto'>
+		<div className='max-h-[300px] overflow-y-auto scrollable-container'>
 			<div className='flex flex-col gap-[10px] '>
 				{models.map(model => (
 					<label key={model} className='flex items-center '>

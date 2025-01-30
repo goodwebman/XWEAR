@@ -51,7 +51,7 @@ function SizeFilter({
 		}
 	}, [initialFilters?.size, sizes])
 	return (
-		<div className=' overflow-y-auto'>
+		<div className=' overflow-y-auto scrollable-container'>
 			<div className='grid grid-cols-3 gap-x-[10px] gap-y-[10px] '>
 				{sortedSizes.map(size => (
 					<label
