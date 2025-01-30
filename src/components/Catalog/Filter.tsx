@@ -107,7 +107,9 @@ function Filter({ onFilterChange, products, initialFilters }: FilterProps) {
 					className='w-full flex justify-between items-center'
 					onClick={() => handleToggleFilter('price')}
 				>
-					<h3 className='font-[900] text-[#121214] text-[13px] uppercase '>Фильтр по цене</h3>
+					<h3 className='font-[900] text-[#121214] text-[13px] uppercase '>
+						Фильтр по цене
+					</h3>
 					<span className=''>
 						{openFilters.includes('price') ? (
 							<svg
@@ -150,16 +152,50 @@ function Filter({ onFilterChange, products, initialFilters }: FilterProps) {
 				)}
 			</div>
 			<div
-				className={`border rounded p-2  ${
-					openFilters.includes('sizes') ? 'bg-gray-100' : 'bg-white'
+				className={` rounded  bg-white border border-gray-300 p-[20px_25px] flex flex-col ${
+					openFilters.includes('sizes') ? 'gap-[30px]' : ''
 				}`}
 			>
 				<button
 					className='w-full flex justify-between items-center'
 					onClick={() => handleToggleFilter('sizes')}
 				>
-					<h3 className='font-bold'>Размеры</h3>
-					<span>{openFilters.includes('sizes') ? '▲' : '▼'}</span>
+					<h3 className='font-[900] text-[#121214] text-[13px] uppercase '>
+						Размеры (EU)
+					</h3>
+					<span className=''>
+						{openFilters.includes('sizes') ? (
+							<svg
+								xmlns='http://www.w3.org/2000/svg'
+								fill='none'
+								viewBox='0 0 24 24'
+								stroke-width='1.5'
+								stroke='black'
+								className='size-4 opacity-60'
+							>
+								<path
+									strokeLinecap='round'
+									strokeLinejoin='round'
+									d='m4.5 15.75 7.5-7.5 7.5 7.5'
+								/>
+							</svg>
+						) : (
+							<svg
+								xmlns='http://www.w3.org/2000/svg'
+								fill='none'
+								viewBox='0 0 24 24'
+								stroke-width='1.5'
+								stroke='black'
+								className='size-4 opacity-60'
+							>
+								<path
+									strokeLinecap='round'
+									strokeLinejoin='round'
+									d='m19.5 8.25-7.5 7.5-7.5-7.5'
+								/>
+							</svg>
+						)}
+					</span>
 				</button>
 				{openFilters.includes('sizes') && (
 					<SizeFilter
@@ -170,17 +206,52 @@ function Filter({ onFilterChange, products, initialFilters }: FilterProps) {
 				)}
 			</div>
 			<div
-				className={`border rounded p-2  ${
-					openFilters.includes('brand') ? 'bg-gray-100' : 'bg-white'
+				className={` rounded  bg-white border border-gray-300 p-[20px_25px] flex flex-col ${
+					openFilters.includes('brand') ? 'gap-[30px]' : ''
 				}`}
 			>
 				<button
 					className='w-full flex justify-between items-center'
 					onClick={() => handleToggleFilter('brand')}
 				>
-					<h3 className='font-bold'>Бренды</h3>
-					<span>{openFilters.includes('brand') ? '▲' : '▼'}</span>
+					<h3 className='font-[900] text-[#121214] text-[13px] uppercase '>
+						Бренды
+					</h3>
+					<span className=''>
+						{openFilters.includes('brand') ? (
+							<svg
+								xmlns='http://www.w3.org/2000/svg'
+								fill='none'
+								viewBox='0 0 24 24'
+								stroke-width='1.5'
+								stroke='black'
+								className='size-4 opacity-60'
+							>
+								<path
+									strokeLinecap='round'
+									strokeLinejoin='round'
+									d='m4.5 15.75 7.5-7.5 7.5 7.5'
+								/>
+							</svg>
+						) : (
+							<svg
+								xmlns='http://www.w3.org/2000/svg'
+								fill='none'
+								viewBox='0 0 24 24'
+								stroke-width='1.5'
+								stroke='black'
+								className='size-4 opacity-60'
+							>
+								<path
+									strokeLinecap='round'
+									strokeLinejoin='round'
+									d='m19.5 8.25-7.5 7.5-7.5-7.5'
+								/>
+							</svg>
+						)}
+					</span>
 				</button>
+
 				{openFilters.includes('brand') && (
 					<BrandFilter
 						brands={brands}
@@ -190,20 +261,55 @@ function Filter({ onFilterChange, products, initialFilters }: FilterProps) {
 				)}
 			</div>
 			<div
-				className={`border rounded p-2  ${
-					openFilters.includes('model') ? 'bg-gray-100' : 'bg-white'
+				className={` rounded  bg-white border border-gray-300 p-[20px_25px] flex flex-col ${
+					openFilters.includes('model') ? 'gap-[30px]' : ''
 				}`}
 			>
 				<button
 					className='w-full flex justify-between items-center'
 					onClick={() => handleToggleFilter('model')}
 				>
-					<h3 className='font-bold'>Модели</h3>
-					<span>{openFilters.includes('model') ? '▲' : '▼'}</span>
+					<h3 className='font-[900] text-[#121214] text-[13px] uppercase '>
+					Модель
+					</h3>
+					<span className=''>
+						{openFilters.includes('model') ? (
+							<svg
+								xmlns='http://www.w3.org/2000/svg'
+								fill='none'
+								viewBox='0 0 24 24'
+								stroke-width='1.5'
+								stroke='black'
+								className='size-4 opacity-60'
+							>
+								<path
+									strokeLinecap='round'
+									strokeLinejoin='round'
+									d='m4.5 15.75 7.5-7.5 7.5 7.5'
+								/>
+							</svg>
+						) : (
+							<svg
+								xmlns='http://www.w3.org/2000/svg'
+								fill='none'
+								viewBox='0 0 24 24'
+								stroke-width='1.5'
+								stroke='black'
+								className='size-4 opacity-60'
+							>
+								<path
+									strokeLinecap='round'
+									strokeLinejoin='round'
+									d='m19.5 8.25-7.5 7.5-7.5-7.5'
+								/>
+							</svg>
+						)}
+					</span>
 				</button>
+
 				{openFilters.includes('model') && (
 					<ModelFilter
-						models={models}
+					models={models}
 						onFilterChange={onFilterChange}
 						initialFilters={initialFilters}
 					/>

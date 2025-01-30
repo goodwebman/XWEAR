@@ -31,8 +31,8 @@ function BrandFilter({ brands, onFilterChange, initialFilters }: BrandFilterProp
       }, [initialFilters?.brand, brands])
   return (
 
-                   <div className="max-h-40 overflow-y-auto">
-                       <div className="space-y-1">
+                   <div className="max-h-[300px] overflow-y-auto">
+                       <div className="flex flex-col gap-[10px]">
                               {brands.map(brand => (
                                     <label key={brand} className="flex items-center">
                                       <input

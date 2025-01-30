@@ -51,13 +51,18 @@ function SizeFilter({
 		}
 	}, [initialFilters?.size, sizes])
 	return (
-		<div className='max-h-40 overflow-y-auto'>
-			<div className='grid grid-cols-3  gap-2'>
+		<div className=' overflow-y-auto'>
+			<div className='grid grid-cols-3 gap-x-[10px] gap-y-[10px] '>
 				{sortedSizes.map(size => (
-					<label key={size} className='flex items-center'>
+					<label
+						key={size}
+						className={`${selectedSizes.some(
+							s => s.toString() === size.toString()
+						) ? "bg-[#49D0FF] text-white" : ""} cursor-pointer flex items-center justify-center border border-[#E6E7EB] rounded-md  p-[6px_20px]`}
+					>
 						<input
 							type='checkbox'
-							className='mr-1'
+							className='hidden'
 							value={size}
 							checked={selectedSizes.some(
 								s => s.toString() === size.toString()

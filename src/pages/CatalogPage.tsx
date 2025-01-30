@@ -136,7 +136,7 @@ function CatalogPage() {
 	const handleResetFilters = () => {
 		setFilters({
 			category: [],
-			price: [0, 10000],
+			price: [0, 8000],
 			size: [],
 			brand: [],
 			model: [],
