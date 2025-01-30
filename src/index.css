@@ -1,87 +1,108 @@
-@import "tailwindcss";
-
+@import 'tailwindcss';
 
 @font-face {
-  font-family: 'RFDewiExtended'; /*  Название шрифта, которое вы будете использовать в Tailwind */
-  src: url('./fonts/RFDewiExpanded-Black.woff2') format('woff2'),
-       url('./fonts/RFDewiExpanded-Black.woff') format('woff'); /* Путь к файлу шрифта */
-  font-weight: 900; /*  Определите вес шрифта (обычно 400 для Regular) */
-  font-style: normal; /*  Определите стиль шрифта (обычно normal для Regular) */
-  font-display: swap; /*  Оптимизация загрузки шрифта */
+	font-family: 'RFDewiExtended'; /*  Название шрифта, которое вы будете использовать в Tailwind */
+	src: url('./fonts/RFDewiExpanded-Black.woff2') format('woff2'),
+		url('./fonts/RFDewiExpanded-Black.woff') format('woff'); /* Путь к файлу шрифта */
+	font-weight: 900; /*  Определите вес шрифта (обычно 400 для Regular) */
+	font-style: normal; /*  Определите стиль шрифта (обычно normal для Regular) */
+	font-display: swap; /*  Оптимизация загрузки шрифта */
 }
 
 @font-face {
-  font-family: 'RFDewiExtended'; /*  Название шрифта, которое вы будете использовать в Tailwind */
-  src: url('./fonts/RFDewiExpanded-Semibold.woff2') format('woff2'),
-       url('./fonts/RFDewiExpanded-Semibold.woff') format('woff'); /* Путь к файлу шрифта */
-  font-weight: 700; /*  Определите вес шрифта (обычно 400 для Regular) */
-  font-style: normal; /*  Определите стиль шрифта (обычно normal для Regular) */
-  font-display: swap; /*  Оптимизация загрузки шрифта */
+	font-family: 'RFDewiExtended'; /*  Название шрифта, которое вы будете использовать в Tailwind */
+	src: url('./fonts/RFDewiExpanded-Semibold.woff2') format('woff2'),
+		url('./fonts/RFDewiExpanded-Semibold.woff') format('woff'); /* Путь к файлу шрифта */
+	font-weight: 700; /*  Определите вес шрифта (обычно 400 для Regular) */
+	font-style: normal; /*  Определите стиль шрифта (обычно normal для Regular) */
+	font-display: swap; /*  Оптимизация загрузки шрифта */
 }
 
 @font-face {
-  font-family: 'RFDewiExtended'; /*  Название шрифта, которое вы будете использовать в Tailwind */
-  src: url('./fonts/RFDewiExtended-Bold.woff2') format('woff2'),
-       url('./fonts/RFDewiExtended-Bold.woff') format('woff'); /* Путь к файлу шрифта */
-  font-weight: 800; /*  Определите вес шрифта (обычно 400 для Regular) */
-  font-style: normal; /*  Определите стиль шрифта (обычно normal для Regular) */
-  font-display: swap; /*  Оптимизация загрузки шрифта */
+	font-family: 'RFDewiExtended'; /*  Название шрифта, которое вы будете использовать в Tailwind */
+	src: url('./fonts/RFDewiExtended-Bold.woff2') format('woff2'),
+		url('./fonts/RFDewiExtended-Bold.woff') format('woff'); /* Путь к файлу шрифта */
+	font-weight: 800; /*  Определите вес шрифта (обычно 400 для Regular) */
+	font-style: normal; /*  Определите стиль шрифта (обычно normal для Regular) */
+	font-display: swap; /*  Оптимизация загрузки шрифта */
 }
 
 @font-face {
-  font-family: 'RFDewiExtended'; /*  Название шрифта, которое вы будете использовать в Tailwind */
-  src: url('./fonts/RFDewiExtended-Regular.woff2') format('woff2'),
-       url('./fonts/RFDewiExtended-Regular.woff') format('woff'); /* Путь к файлу шрифта */
-  font-weight: 400; /*  Определите вес шрифта (обычно 400 для Regular) */
-  font-style: normal; /*  Определите стиль шрифта (обычно normal для Regular) */
-  font-display: swap; /*  Оптимизация загрузки шрифта */
+	font-family: 'RFDewiExtended'; /*  Название шрифта, которое вы будете использовать в Tailwind */
+	src: url('./fonts/RFDewiExtended-Regular.woff2') format('woff2'),
+		url('./fonts/RFDewiExtended-Regular.woff') format('woff'); /* Путь к файлу шрифта */
+	font-weight: 400; /*  Определите вес шрифта (обычно 400 для Regular) */
+	font-style: normal; /*  Определите стиль шрифта (обычно normal для Regular) */
+	font-display: swap; /*  Оптимизация загрузки шрифта */
 }
 
 @font-face {
-  font-family: 'RFDewiExtended'; /*  Название шрифта, которое вы будете использовать в Tailwind */
-  src: url('./fonts/RFDewiExtended-Semibold.woff2') format('woff2'),
-       url('./fonts/RFDewiExtended-Semibold.woff') format('woff'); /* Путь к файлу шрифта */
-  font-weight: 700; /*  Определите вес шрифта (обычно 400 для Regular) */
-  font-style: normal; /*  Определите стиль шрифта (обычно normal для Regular) */
-  font-display: swap; /*  Оптимизация загрузки шрифта */
+	font-family: 'RFDewiExtended'; /*  Название шрифта, которое вы будете использовать в Tailwind */
+	src: url('./fonts/RFDewiExtended-Semibold.woff2') format('woff2'),
+		url('./fonts/RFDewiExtended-Semibold.woff') format('woff'); /* Путь к файлу шрифта */
+	font-weight: 700; /*  Определите вес шрифта (обычно 400 для Regular) */
+	font-style: normal; /*  Определите стиль шрифта (обычно normal для Regular) */
+	font-display: swap; /*  Оптимизация загрузки шрифта */
 }
-
 
 .gradient {
-  background-image: linear-gradient(
-    to right,
-    #0d99f8,
-    #21a0f8,
-    #54b5ff,
-    #0dbbf8,
-    #0ddbf8
-  );
+	background-image: linear-gradient(
+		to right,
+		#0d99f8,
+		#21a0f8,
+		#54b5ff,
+		#0dbbf8,
+		#0ddbf8
+	);
 }
 
 
-.price-slider {
-  width: 100%;
-  height: 5px;
-  position: relative;
-  margin-bottom: 10px;
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
 }
-
-.price-slider .react-slider-track {
-  height: 5px;
-  background-color: #e5e7eb;
-  border-radius: 4px;
-}
-
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-
 
 body {
-  font-family: 'RFDewiExtended', 'sans-serif';
+	font-family: 'RFDewiExtended', 'sans-serif';
 }
 
+.checkbox {
+  display: none;
+}
+
+.custom-checkbox {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: #F8FAFB;
+  border-radius: 4px;
+  margin-right: 10px;
+
+  position: relative;
+}
+
+.custom-checkbox::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width:10px;
+  height: 10px;
+  background-image: url(/checkbox.svg) ;
+  background-repeat: no-repeat;
+  top: 50%;
+  left:50%;
+  transform: translate(-40%, -30%);
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.checkbox:checked + .custom-checkbox::before {
+  opacity: 1;
+  
+}
+
+.checkbox:checked + .custom-checkbox {
+  background: #49D0FF;
+}

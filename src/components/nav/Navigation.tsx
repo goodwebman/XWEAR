@@ -107,7 +107,7 @@ const Navigation = () => {
 						</svg>
 					</button>
 					<a href='/'>
-						<img src='logo.svg' alt='' />
+						<img src='/logo.svg' alt='' />
 					</a>
 
 					<button
@@ -316,14 +316,14 @@ const Navigation = () => {
 				{/* NAV ICONS */}
 				<div className='flex items-center gap-[32px] max-[400px]:gap-[20px]'>
 					<button className='cursor-pointer'>
-						<img src='favorites.svg' alt='fav' />
+						<img src='/favorites.svg' alt='fav' />
 					</button>
 					<button className='cursor-pointer'>
-						<img src='profile.svg' alt='prof' />
+						<img src='/profile.svg' alt='prof' />
 					</button>
 					<div className='flex gap-[6px] items-center'>
 						<button className='cursor-pointer relative'>
-							<img src='busket.svg' alt='busket' />
+							<img src='/busket.svg' alt='busket' />
 							<div className=' hidden absolute  max-[500px]:inline-flex  top-[-8px] w-[8px] h-[8px] items-center justify-center rounded-full text-white p-2  bg-blue-400 '>
 								<span className='text-[12px] font-[400]'>7</span>
 							</div>

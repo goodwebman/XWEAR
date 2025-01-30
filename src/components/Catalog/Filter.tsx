@@ -99,7 +99,7 @@ function Filter({ onFilterChange, products, initialFilters }: FilterProps) {
 				)}
 			</div>
 			<div
-				className={` rounded  bg-white border mb-[20px] border-gray-300 p-[20px_25px] flex flex-col ${
+				className={` rounded  bg-white border mb-[20px]  border-gray-300 p-[20px_25px] flex flex-col ${
 					openFilters.includes('price') ? 'gap-[30px]' : ''
 				}`}
 			>

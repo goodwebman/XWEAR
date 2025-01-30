@@ -3,7 +3,7 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import Filter from '../components/catalog/Filter'
 import ProductList from '../components/catalog/ProductList'
 import { initialProducts } from '../data'
-import { Breadcrumb, Filters } from '../types'
+import { Filters } from '../types'
 
 function CatalogPage() {
 	const { type } = useParams<{ type: string }>()
@@ -15,7 +15,7 @@ function CatalogPage() {
 		price:
 			searchParams.getAll('price').length > 0
 				? searchParams.getAll('price').map(Number)
-				: [0, 10000],
+				: [0, 8000],
 		size: searchParams.getAll('size'),
 		brand: searchParams.getAll('brand'),
 		model: searchParams.getAll('model'),
@@ -24,13 +24,6 @@ function CatalogPage() {
 	}
 
 	const [filters, setFilters] = useState<Filters>(initialFilters)
-
-	const breadcrumbs: Breadcrumb[] = [
-		{ name: 'Каталог товаров' },
-		{
-			name: type.charAt(0).toUpperCase() + type.slice(1),
-		},
-	]
 
 	const filteredProducts = useMemo(() => {
 		let filtered = initialProducts.filter(
@@ -151,14 +144,15 @@ function CatalogPage() {
 
 	return (
 		<div className='max-w-[1300px] mx-auto px-[20px]'>
-			<div className='b p-2'>
-				{breadcrumbs.map((crumb, index) => (
-					<span key={index}>
-						{index !== 0 && ' / '}
-						{crumb.link ? <a href={crumb.link}>{crumb.name}</a> : crumb.name}
+			<div className='pt-[15px] pb-[50px]'>
+				<div className='text-[#8C8F96]'>
+					Главная &nbsp; / &nbsp; Каталог товаров &nbsp; / &nbsp;{' '}
+					<span className='text-[#121214]'>
+						{type[0].toUpperCase() + type.slice(1)}
 					</span>
-				))}
+				</div>
 			</div>
+
 			<div className='flex flex-row '>
 				<div className=' '>
 					<Filter

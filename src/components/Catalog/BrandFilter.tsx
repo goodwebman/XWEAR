@@ -34,14 +34,15 @@ function BrandFilter({ brands, onFilterChange, initialFilters }: BrandFilterProp
                    <div className="max-h-[300px] overflow-y-auto">
                        <div className="flex flex-col gap-[10px]">
                               {brands.map(brand => (
-                                    <label key={brand} className="flex items-center">
+                                    <label key={brand} className="flex items-center ">
                                       <input
                                         type="checkbox"
-                                        className="mr-2"
+                                        className="mr-2 checkbox"
                                         value={brand}
                                         checked={selectedBrands.includes(brand)}
                                         onChange={handleBrandChange}
                                       />
+                                      <span className='custom-checkbox'></span>
                                       {brand}
                                 </label>
                               ))}

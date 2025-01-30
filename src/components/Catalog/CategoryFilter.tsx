@@ -37,11 +37,12 @@ function CategoryFilter({ categories, onFilterChange, initialFilters }: Category
                             <label key={category} className="flex items-center">
                                 <input
                                     type="checkbox"
-                                    className="mr-2 "
+                                    className="mr-2 checkbox"
                                     value={category}
                                     checked={selectedCategories.includes(category)}
                                     onChange={handleCategoryChange}
                                 />
+                                <span className='custom-checkbox'></span>
                                 {category}
                             </label>
                     ))}
