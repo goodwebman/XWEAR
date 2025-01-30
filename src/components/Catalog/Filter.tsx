@@ -44,12 +44,12 @@ function Filter({ onFilterChange, products, initialFilters }: FilterProps) {
 	return (
 		<div className='space-y-2'>
 			<div
-				className={` rounded  bg-white border border-gray-300 p-[20px_25px] flex flex-col ${
+				className={` rounded  bg-white border mb-[20px] border-gray-300 p-[20px_25px] flex flex-col ${
 					openFilters.includes('category') ? 'gap-[30px]' : ''
 				}`}
 			>
 				<button
-					className='w-full flex justify-between items-center'
+					className='w-full flex justify-between items-center cursor-pointer'
 					onClick={() => handleToggleFilter('category')}
 				>
 					<h3 className='font-[900] text-[#121214] text-[13px] uppercase '>
@@ -99,12 +99,12 @@ function Filter({ onFilterChange, products, initialFilters }: FilterProps) {
 				)}
 			</div>
 			<div
-				className={` rounded  bg-white border border-gray-300 p-[20px_25px] flex flex-col ${
+				className={` rounded  bg-white border mb-[20px] border-gray-300 p-[20px_25px] flex flex-col ${
 					openFilters.includes('price') ? 'gap-[30px]' : ''
 				}`}
 			>
 				<button
-					className='w-full flex justify-between items-center'
+					className='w-full flex justify-between cursor-pointer items-center'
 					onClick={() => handleToggleFilter('price')}
 				>
 					<h3 className='font-[900] text-[#121214] text-[13px] uppercase '>
@@ -152,12 +152,12 @@ function Filter({ onFilterChange, products, initialFilters }: FilterProps) {
 				)}
 			</div>
 			<div
-				className={` rounded  bg-white border border-gray-300 p-[20px_25px] flex flex-col ${
+				className={` rounded mb-[20px] bg-white border border-gray-300 p-[20px_25px] flex flex-col ${
 					openFilters.includes('sizes') ? 'gap-[30px]' : ''
 				}`}
 			>
 				<button
-					className='w-full flex justify-between items-center'
+					className='w-full flex justify-between cursor-pointer items-center'
 					onClick={() => handleToggleFilter('sizes')}
 				>
 					<h3 className='font-[900] text-[#121214] text-[13px] uppercase '>
@@ -206,12 +206,12 @@ function Filter({ onFilterChange, products, initialFilters }: FilterProps) {
 				)}
 			</div>
 			<div
-				className={` rounded  bg-white border border-gray-300 p-[20px_25px] flex flex-col ${
+				className={` rounded mb-[20px] bg-white border border-gray-300 p-[20px_25px] flex flex-col ${
 					openFilters.includes('brand') ? 'gap-[30px]' : ''
 				}`}
 			>
 				<button
-					className='w-full flex justify-between items-center'
+					className='w-full flex justify-between cursor-pointer items-center'
 					onClick={() => handleToggleFilter('brand')}
 				>
 					<h3 className='font-[900] text-[#121214] text-[13px] uppercase '>
@@ -261,12 +261,12 @@ function Filter({ onFilterChange, products, initialFilters }: FilterProps) {
 				)}
 			</div>
 			<div
-				className={` rounded  bg-white border border-gray-300 p-[20px_25px] flex flex-col ${
+				className={` rounded mb-[20px] bg-white border border-gray-300 p-[20px_25px] flex flex-col ${
 					openFilters.includes('model') ? 'gap-[30px]' : ''
 				}`}
 			>
 				<button
-					className='w-full flex justify-between items-center'
+					className='w-full flex justify-between cursor-pointer items-center'
 					onClick={() => handleToggleFilter('model')}
 				>
 					<h3 className='font-[900] text-[#121214] text-[13px] uppercase '>
@@ -316,12 +316,12 @@ function Filter({ onFilterChange, products, initialFilters }: FilterProps) {
 				)}
 			</div>
 			<div
-				className={` rounded  bg-white border border-gray-300 p-[20px_25px] flex flex-col ${
+				className={` rounded  bg-white border mb-[20px] border-gray-300 p-[20px_25px] flex flex-col ${
 					openFilters.includes('color') ? 'gap-[30px]' : ''
 				}`}
 			>
 				<button
-					className='w-full flex justify-between items-center'
+					className='w-full flex justify-between cursor-pointer items-center'
 					onClick={() => handleToggleFilter('color')}
 				>
 					<h3 className='font-[900] text-[#121214] text-[13px] uppercase '>

@@ -160,23 +160,36 @@ function CatalogPage() {
 				))}
 			</div>
 			<div className='flex flex-row '>
-				<div className='w-1/4 p-4 '>
+				<div className=' '>
 					<Filter
 						onFilterChange={handleFilterChange}
 						products={typeProducts}
 						initialFilters={filters}
 					/>
 
-					<div className='mb-4'>
-						<button
-							className='bg-gray-400 hover:bg-gray-500 text-white py-2 px-4 rounded focus:outline-none'
-							onClick={handleResetFilters}
+					<button
+						className='flex items-center cursor-pointer mb-[20px] font-[900] text-[13px] p-[20px_55px] text-[#121214] whitespace-nowrap gap-[7.5px] border rounded-md mt-[20px] border-[#E6E7EB]'
+						onClick={handleResetFilters}
+					>
+						<svg
+							width='9'
+							height='8'
+							viewBox='0 0 9 8'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'
 						>
-							Сбросить все фильтры
-						</button>
-					</div>
+							<path
+								d='M1 7.49954L7.99954 0.5M8 7.49977L1.00046 0.50023'
+								stroke='#2C2C2C'
+								stroke-linecap='round'
+								stroke-linejoin='round'
+							/>
+						</svg>
+
+						<p className='uppercase'>Сбросить все фильтры</p>
+					</button>
 				</div>
-				<div className='w-3/4 p-4 '>
+				<div className='w-3/4 pl-[20px] '>
 					<div className='mb-4'>
 						<h2 className='text-2xl font-bold'>
 							{type.charAt(0).toUpperCase() + type.slice(1)}

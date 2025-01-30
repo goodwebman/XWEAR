@@ -129,7 +129,7 @@ function PriceFilter({ onFilterChange, initialFilters }: PriceFilterProps) {
 						value={minPrice}
 						onChange={handleMinPriceChange}
 					/>
-					<span className='absolute right-8 top-1/2 transform -translate-y-1/2 text-[#8D93AB]'>
+					<span className='absolute right-6 top-1/2 transform -translate-y-1/2 text-[#8D93AB]'>
 						₽
 					</span>
 				</div>
