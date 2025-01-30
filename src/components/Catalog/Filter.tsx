@@ -107,7 +107,7 @@ function Filter({ onFilterChange, products, initialFilters }: FilterProps) {
 					className='w-full flex justify-between items-center'
 					onClick={() => handleToggleFilter('price')}
 				>
-					<h3 className='font-bold'>Цена</h3>
+					<h3 className='font-[900] text-[#121214] text-[13px] uppercase '>Фильтр по цене</h3>
 					<span className=''>
 						{openFilters.includes('price') ? (
 							<svg
