@@ -2,12 +2,12 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import Filter from '../components/catalog/Filter'
 import ProductList from '../components/catalog/ProductList'
+import SortingFilter from '../components/catalog/SortingFilter'
 import Pagination from '../components/Pagination'
 import { initialProducts } from '../data'
 import usePagination from '../hooks/usePaginationProps'
-import { Filters } from '../types'
 import { handsomeItemsCount } from '../libs/handsomeItemsCount'
-
+import { Filters } from '../types'
 
 function CatalogPage() {
 	const isCatalog = true
@@ -161,8 +161,6 @@ function CatalogPage() {
 		isCatalog,
 	})
 
-	
-
 	return (
 		<div className='max-w-[1300px] mx-auto px-[20px]'>
 			<div className='pt-[15px] pb-[50px]'>
@@ -205,11 +203,16 @@ function CatalogPage() {
 					</button>
 				</div>
 				<div className='w-3/4 pl-[20px] '>
-					<div className='mb-4'>
-						<h2 className='text-[32px] font-[900]'>
-							{type.charAt(0).toUpperCase() + type.slice(1)}
-						</h2>
-						<p>{filteredProducts.length} {handsomeItemsCount(filteredProducts)} </p>
+					<div className='flex items-center justify-between'>
+						<div className='mb-4'>
+							<h2 className='text-[32px] font-[900]'>
+								{type.charAt(0).toUpperCase() + type.slice(1)}
+							</h2>
+							<p>
+								{filteredProducts.length} {handsomeItemsCount(filteredProducts)}{' '}
+							</p>
+						</div>
+						<SortingFilter onFilterChange={handleFilterChange} />
 					</div>
 					<div className='grid grid-cols-3 gap-4 mb-[40px]'>
 						{currentItems.map(product => (

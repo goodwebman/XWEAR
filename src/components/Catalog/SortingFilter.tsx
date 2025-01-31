@@ -22,14 +22,15 @@ function SortingFilter({ onFilterChange, initialFilters }: SortingFilterProps) {
     }, [initialFilters?.sorting])
   return (
                    <div>
+                          <span className='text-[#3C3C3C]'>Сортировать по </span>
                          <select
-                            className="border rounded p-1"
+                            className="text-black font-[700] rounded p-1 focus:border-none"
                               value={sortingOption || ''}
                             onChange={handleSortingChange}
                          >
-                             <option value=''>По умолчанию</option>
-                            <option value="asc">От дешевых к дорогим</option>
-                             <option value="desc">От дорогих к дешевым</option>
+                             
+                            <option  value="asc">От дешевых к дорогим</option>
+                             <option  value="desc">От дорогих к дешевым</option>
                          </select>
                    </div>
 

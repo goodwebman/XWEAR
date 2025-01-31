@@ -117,3 +117,12 @@ body {
 .scrollable-container::-webkit-scrollbar-thumb {
 	background: #121214;
 }
+
+select:focus,
+select:hover,
+option:hover,
+option:focus {
+  border:none;
+  outline:none;
+  border:transparent;
+}
