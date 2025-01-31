@@ -58,7 +58,7 @@ function ColorFilter({
 							}`}
 							style={{ backgroundColor: `#${colorHex[index]}` }}
 						/>
-						<span className='text-center text-[13px] mt-1'>{color}</span>{' '}
+						<span className='text-center text-[14px]  mt-1'>{color}</span>{' '}
 						{/* Добавили span для текста */}
 					</label>
 				))}

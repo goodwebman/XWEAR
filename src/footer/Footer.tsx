@@ -8,20 +8,20 @@ const Footer = () => {
 			{/* MOBILE  */}
 			<div className='max-[600px]:flex hidden flex-col py-[30px] justify-center'>
 				<button className='mx-auto mb-[20px]'>
-					<img src='logo-footer.png' alt='logo-footer' />
+					<img src='/logo-footer.png' alt='logo-footer' />
 				</button>
 
 				<Accordion items={accordionItems} />
 
 				<div className='flex mx-auto items-center gap-[10px] pt-[21px]'>
 					<a href=''>
-						<img src='tg-footer.png' alt='' />
+						<img src='/tg-footer.png' alt='' />
 					</a>
 					<a href=''>
-						<img src='wu-footer.png' alt='' />
+						<img src='/wu-footer.png' alt='' />
 					</a>
 					<a href=''>
-						<img src='vk-footer.png' alt='' />
+						<img src='/vk-footer.png' alt='' />
 					</a>
 				</div>
 
@@ -73,7 +73,7 @@ const Footer = () => {
 				</div>
 
 				<div className='mt-[35px] pb-[36px] mx-auto'>
-					<img src='readycode.png' alt='readycode' />
+					<img src='/readycode.png' alt='readycode' />
 				</div>
 			</div>
 
@@ -144,15 +144,15 @@ const Footer = () => {
 							<a href=''>Мессенджеры</a>
 
 							<div className='flex gap-[15px]'>
-								<img src='tg-footer.png' alt='' />
-								<img src='wu-footer.png' alt='' />
+								<img src='/tg-footer.png' alt='' />
+								<img src='/wu-footer.png' alt='' />
 							</div>
 						</div>
 
 						<p className='uppercase font-[900] text-[16px]  '>
 							<a href=''>Наши соц.сети</a>
 
-							<img className='mt-[8px]' src='vk-footer.png' alt='' />
+							<img className='mt-[8px]' src='/vk-footer.png' alt='' />
 						</p>
 					</div>
 				</div>
@@ -198,7 +198,7 @@ const Footer = () => {
 				</p>
 
 				<div className='flex justify-between items-center pt-[30px]'>
-					<img src='logo-footer.png' alt='' />
+					<img src='/logo-footer.png' alt='' />
 					<div className=' mt-[20px]'>
 					<p className='font-[500] text-[14px] underline text-white/40'>
 								<a href="">Политика конфиденциальности</a>
@@ -207,7 +207,7 @@ const Footer = () => {
 								<a href="">Пользовательское соглашение</a>
 							</p>
 					</div>
-					<img src='readycode.png' alt='' />
+					<img src='/readycode.png' alt='' />
 				</div>
 			</div>
 
@@ -237,7 +237,7 @@ const Footer = () => {
 						</p>
 
 						<a href='/' className='pt-[50px] flex '>
-							<img className='max-w-[100px]' src='logo-footer.png' alt='' />
+							<img className='max-w-[100px]' src='/logo-footer.png' alt='' />
 						</a>
 					</div>
 					<div className='text-[#DCDCE0] flex flex-col  justify-between'>
@@ -265,7 +265,7 @@ const Footer = () => {
 						</p>
 
 						<a href='/' className='pt-[50px]'>
-							<img className='max-w-[140px]' src='readycode.png' alt='' />
+							<img className='max-w-[140px]' src='/readycode.png' alt='' />
 						</a>
 					</div>
 					<div className='text-[#DCDCE0] flex flex-col gap-[15px] '>
@@ -287,15 +287,15 @@ const Footer = () => {
 							<a href=''>Мессенджеры</a>
 
 							<div className='flex gap-[15px]'>
-								<img src='tg-footer.png' alt='' />
-								<img src='wu-footer.png' alt='' />
+								<img src='/tg-footer.png' alt='' />
+								<img src='/wu-footer.png' alt='' />
 							</div>
 						</div>
 
 						<p className='uppercase font-[900] text-[16px]  '>
 							<a href=''>Наши соц.сети</a>
 
-							<img className='mt-[8px]' src='vk-footer.png' alt='' />
+							<img className='mt-[8px]' src='/vk-footer.png' alt='' />
 						</p>
 					</div>
 					<div className='text-white flex flex-col gap-[15px] justify-between'>

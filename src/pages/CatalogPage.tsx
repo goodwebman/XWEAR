@@ -1,161 +1,25 @@
-import { useEffect, useMemo, useState } from 'react'
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import Filter from '../components/catalog/Filter'
 import ProductList from '../components/catalog/ProductList'
 import SortingFilter from '../components/catalog/SortingFilter'
 import Pagination from '../components/Pagination'
 import { initialProducts } from '../data'
+
 import usePagination from '../hooks/usePaginationProps'
+import useProductFilters from '../hooks/useProductFilters'
 import { handsomeItemsCount } from '../libs/handsomeItemsCount'
-import { Filters } from '../types'
 
 function CatalogPage() {
 	const isCatalog = true
-	const { type } = useParams<{ type: string }>()
-	const [searchParams, setSearchParams] = useSearchParams()
-	const navigate = useNavigate()
-
-	const initialFilters: Filters = {
-		category: searchParams.getAll('category'),
-		price:
-			searchParams.getAll('price').length > 0
-				? searchParams.getAll('price').map(Number)
-				: [0, 8000],
-		size: searchParams.getAll('size'),
-		brand: searchParams.getAll('brand'),
-		model: searchParams.getAll('model'),
-		color: searchParams.getAll('color'),
-		sorting: searchParams.get('sorting') as 'asc' | 'desc' | null,
-	}
-
-	const [filters, setFilters] = useState<Filters>(initialFilters)
-
-	const filteredProducts = useMemo(() => {
-		let filtered = initialProducts.filter(
-			product => product.type.toLowerCase() === type
-		)
-
-		// Фильтрация по категории
-		if (filters.category.length > 0) {
-			filtered = filtered.filter(product =>
-				filters.category.includes(product.category)
-			)
-		}
-
-		// Фильтрация по цене
-		if (filters.price && filters.price.length === 2) {
-			filtered = filtered.filter(
-				product =>
-					product.price >= filters.price[0] && product.price <= filters.price[1]
-			)
-		}
-
-		// Фильтрация по размеру
-		if (filters.size.length > 0) {
-			filtered = filtered.filter(product => {
-				if (typeof product.size === 'number') {
-					return filters.size.includes(product.size.toString())
-				} else {
-					return filters.size.includes(product.size)
-				}
-			})
-		}
-
-		// Фильтрация по бренду
-		if (filters.brand.length > 0) {
-			filtered = filtered.filter(product =>
-				filters.brand.includes(product.brand)
-			)
-		}
-		// Фильтрация по модели
-		if (filters.model.length > 0) {
-			filtered = filtered.filter(product =>
-				filters.model.includes(product.model)
-			)
-		}
-		// Фильтрация по цвету
-		if (filters.color.length > 0) {
-			filtered = filtered.filter(product =>
-				filters.color.includes(product.color)
-			)
-		}
-		// Сортировка
-		if (filters.sorting === 'asc') {
-			filtered.sort((a, b) => a.price - b.price)
-		} else if (filters.sorting === 'desc') {
-			filtered.sort((a, b) => b.price - a.price)
-		}
-
-		return filtered
-	}, [filters, type])
-
-	const typeProducts = useMemo(() => {
-		return initialProducts.filter(
-			product => product.type.toLowerCase() === type
-		)
-	}, [type])
-
-	useEffect(() => {
-		const params = new URLSearchParams()
-		if (filters.category.length > 0) {
-			filters.category.forEach(category => params.append('category', category))
-		}
-		if (filters.price && filters.price.length === 2) {
-			params.append('price', filters.price[0].toString())
-			params.append('price', filters.price[1].toString())
-		}
-		if (filters.size.length > 0) {
-			filters.size.forEach(size => {
-				if (typeof size === 'number') {
-					params.append('size', size.toString())
-				} else {
-					params.append('size', size)
-				}
-			})
-		}
-		if (filters.brand.length > 0) {
-			filters.brand.forEach(brand => params.append('brand', brand))
-		}
-		if (filters.model.length > 0) {
-			filters.model.forEach(model => params.append('model', model))
-		}
-		if (filters.color.length > 0) {
-			filters.color.forEach(color => params.append('color', color))
-		}
-		if (filters.sorting) {
-			params.set('sorting', filters.sorting)
-		}
-		navigate({
-			pathname: `/catalog/${type}`,
-			search: params.toString(),
-		})
-	}, [filters, type, navigate])
-
-	const handleResetFilters = () => {
-		setFilters({
-			category: [],
-			price: [0, 8000],
-			size: [],
-			brand: [],
-			model: [],
-			color: [],
-			sorting: null,
-		})
-	}
-
-	const handleFilterChange = (newFilters: Partial<Filters>) => {
-		setFilters({ ...filters, ...newFilters })
-	}
+	const { filters, filteredProducts, typeProducts, handleFilterChange, type } =
+		useProductFilters({ initialProducts })
 
 	const {
 		currentPage,
-		itemsPerPage,
 		totalPages,
 		nextPage,
 		prevPage,
 		goToPage,
 		currentItems,
-		showAll,
 	} = usePagination({
 		data: filteredProducts,
 		isCatalog,
@@ -164,7 +28,7 @@ function CatalogPage() {
 	return (
 		<div className='max-w-[1300px] mx-auto px-[20px]'>
 			<div className='pt-[15px] pb-[50px]'>
-				<div className='text-[#8C8F96]'>
+				<div className='text-[#8C8F96] max-[380px]:text-[15px]'>
 					Главная &nbsp; / &nbsp; Каталог товаров &nbsp; / &nbsp;{' '}
 					<span className='text-[#121214]'>
 						{type[0].toUpperCase() + type.slice(1)}
@@ -172,38 +36,42 @@ function CatalogPage() {
 				</div>
 			</div>
 
-			<div className='flex flex-row '>
+			<div className='flex max-[1000px]:flex-col'>
+				
+				<div className='flex items-center justify-between min-[1000px]:hidden '>
+					<div className='mb-4 max-[620px]:hidden'>
+						<h2 className='text-[32px] font-[900]'>
+							{type.charAt(0).toUpperCase() + type.slice(1)}
+						</h2>
+						<p>
+							{filteredProducts.length} {handsomeItemsCount(filteredProducts)}{' '}
+						</p>
+					</div>
+					<div className='max-[620px]:hidden'>
+						<SortingFilter onFilterChange={handleFilterChange} />
+					</div>
+
+					<div className='mb-[30px] hidden max-[620px]:block'>
+						<h2 className='text-[32px] font-[900]'>
+							{type.charAt(0).toUpperCase() + type.slice(1)}
+						</h2>
+						<p>
+							{filteredProducts.length} {handsomeItemsCount(filteredProducts)}{' '}
+						</p>
+					</div>
+				</div>
 				<div className=' '>
 					<Filter
 						onFilterChange={handleFilterChange}
 						products={typeProducts}
 						initialFilters={filters}
 					/>
-
-					<button
-						className='flex items-center cursor-pointer mb-[20px] font-[900] text-[13px] p-[20px_55px] text-[#121214] whitespace-nowrap gap-[7.5px] border rounded-md mt-[20px] border-[#E6E7EB]'
-						onClick={handleResetFilters}
-					>
-						<svg
-							width='9'
-							height='8'
-							viewBox='0 0 9 8'
-							fill='none'
-							xmlns='http://www.w3.org/2000/svg'
-						>
-							<path
-								d='M1 7.49954L7.99954 0.5M8 7.49977L1.00046 0.50023'
-								stroke='#2C2C2C'
-								stroke-linecap='round'
-								stroke-linejoin='round'
-							/>
-						</svg>
-
-						<p className='uppercase'>Сбросить все фильтры</p>
-					</button>
 				</div>
-				<div className='w-3/4 pl-[20px] '>
-					<div className='flex items-center justify-between'>
+				<div className=' justify-center max-[620px]:flex hidden mb-[20px] max-[460px]:text-[12px]'>
+					<SortingFilter onFilterChange={handleFilterChange} />
+				</div>
+				<div className='min-[1000px]:w-3/4 pl-[20px] '>
+					<div className='flex items-center justify-between max-[1000px]:hidden'>
 						<div className='mb-4'>
 							<h2 className='text-[32px] font-[900]'>
 								{type.charAt(0).toUpperCase() + type.slice(1)}
@@ -214,7 +82,7 @@ function CatalogPage() {
 						</div>
 						<SortingFilter onFilterChange={handleFilterChange} />
 					</div>
-					<div className='grid grid-cols-3 gap-4 mb-[40px]'>
+					<div className='grid grid-cols-3 max-[1000px]:grid-cols-3 max-[1100px]:grid-cols-2 max-[860px]:grid-cols-2 gap-4 mb-[40px]'>
 						{currentItems.map(product => (
 							<ProductList
 								id={product.id}

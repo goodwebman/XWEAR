@@ -26,7 +26,7 @@ function ProductList({
 		}
 	}
 	return (
-		<button className='text-left flex flex-col justify-center cursor-pointer min-w-[160px] '>
+		<button className='text-left flex flex-col justify-baseline cursor-pointer min-w-[160px] '>
 			<div className='relative mt-[15px]'>
 				<img src={image} alt={model} />
 				<svg
