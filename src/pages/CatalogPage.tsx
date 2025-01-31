@@ -1,17 +1,22 @@
+import { useEffect, useState } from 'react'
 import Filter from '../components/catalog/Filter'
 import ProductList from '../components/catalog/ProductList'
 import SortingFilter from '../components/catalog/SortingFilter'
 import Pagination from '../components/Pagination'
-import { initialProducts } from '../data'
 
+import { initialProducts } from '../data'
+import { useSearch } from '../hooks/SearchContext'
 import usePagination from '../hooks/usePaginationProps'
 import useProductFilters from '../hooks/useProductFilters'
 import { handsomeItemsCount } from '../libs/handsomeItemsCount'
 
 function CatalogPage() {
+	const { searchTerm } = useSearch()
 	const isCatalog = true
+	const [filteredProductsAfterSearch, setFilteredProductsAfterSearch] =
+		useState(initialProducts)
 	const { filters, filteredProducts, typeProducts, handleFilterChange, type } =
-		useProductFilters({ initialProducts })
+		useProductFilters({ initialProducts: filteredProductsAfterSearch })
 
 	const {
 		currentPage,
@@ -25,6 +30,25 @@ function CatalogPage() {
 		isCatalog,
 	})
 
+	useEffect(() => {
+		const filter = () => {
+			if (!searchTerm) {
+				setFilteredProductsAfterSearch(initialProducts)
+				return
+			}
+			const lowerCaseTerm = searchTerm.toLowerCase()
+			const searchWords = lowerCaseTerm.split(' ').filter(word => word) // Разбиваем на слова и убираем пустые
+			const filtered = initialProducts.filter(product => {
+				const productName = product.model.toLowerCase()
+				const productBrand = product.brand.toLowerCase()
+				return searchWords.every(
+					word => productName.includes(word) || productBrand.includes(word)
+				)
+			})
+			setFilteredProductsAfterSearch(filtered)
+		}
+		filter()
+	}, [searchTerm])
 	return (
 		<div className='max-w-[1300px] mx-auto px-[20px]'>
 			<div className='pt-[15px] pb-[50px]'>
@@ -35,9 +59,7 @@ function CatalogPage() {
 					</span>
 				</div>
 			</div>
-
 			<div className='flex max-[1000px]:flex-col'>
-				
 				<div className='flex items-center justify-between min-[1000px]:hidden '>
 					<div className='mb-4 max-[620px]:hidden'>
 						<h2 className='text-[32px] font-[900]'>
@@ -50,7 +72,6 @@ function CatalogPage() {
 					<div className='max-[620px]:hidden'>
 						<SortingFilter onFilterChange={handleFilterChange} />
 					</div>
-
 					<div className='mb-[30px] hidden max-[620px]:block'>
 						<h2 className='text-[32px] font-[900]'>
 							{type.charAt(0).toUpperCase() + type.slice(1)}
@@ -98,7 +119,6 @@ function CatalogPage() {
 							/>
 						))}
 					</div>
-
 					<Pagination
 						currentPage={currentPage}
 						totalPages={totalPages}

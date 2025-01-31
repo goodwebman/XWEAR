@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { initialProducts } from '../../data'
+import { useSearch } from '../../hooks/SearchContext'
+import SearchInput from '../catalog/SearchInput'
 
 interface NavItem {
 	name: string
@@ -8,7 +10,9 @@ interface NavItem {
 	dropdown?: NavItem[]
 }
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
+	const { handleSearch } = useSearch() // Получаем handleSearch из контекста
+
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
 	const menuRef = useRef<HTMLDivElement>(null)
@@ -233,13 +237,6 @@ const Navigation = () => {
 					</ul>
 				</nav>
 
-				{/* <Link
-								to={item.path}
-								className=' text-white font-[600] leading-[17px]  relative before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-0 before:bg-white before:transition-all pb-[6px] before:duration-500 before:ease-in-out group-hover:before:w-full'
-							>
-								{item.name}
-							</Link> */}
-
 				{/* NAV ITEMS */}
 				<ul className='flex max-[970px]:hidden items-center gap-[48px]'>
 					{navItems.map(item => (
@@ -312,7 +309,9 @@ const Navigation = () => {
 						</li>
 					))}
 				</ul>
-
+				<div className='max-[970px]:hidden'>
+					<SearchInput onSearch={handleSearch} />
+				</div>
 				{/* NAV ICONS */}
 				<div className='flex items-center gap-[32px] max-[400px]:gap-[20px]'>
 					<button className='cursor-pointer'>
