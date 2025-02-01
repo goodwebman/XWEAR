@@ -1,4 +1,3 @@
-// src/pages/HomePage.tsx
 import AboutUs from '../components/about/AboutUs'
 import Categories from '../components/categories/Categories'
 import Blog from '../components/ourBlog/Blog'

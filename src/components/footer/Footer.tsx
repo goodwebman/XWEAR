@@ -1,8 +1,7 @@
-import { accordionItems } from '../data'
+import { accordionItems } from '../../data'
 import Accordion from './Accordion'
 
 const Footer = () => {
-	
 	return (
 		<footer className='bg-[#121214] px-[20px]'>
 			{/* MOBILE  */}
@@ -200,12 +199,12 @@ const Footer = () => {
 				<div className='flex justify-between items-center pt-[30px]'>
 					<img src='/logo-footer.png' alt='' />
 					<div className=' mt-[20px]'>
-					<p className='font-[500] text-[14px] underline text-white/40'>
-								<a href="">Политика конфиденциальности</a>
-							</p>
-							<p className='font-[500] text-[14px] underline text-white/40'>
-								<a href="">Пользовательское соглашение</a>
-							</p>
+						<p className='font-[500] text-[14px] underline text-white/40'>
+							<a href=''>Политика конфиденциальности</a>
+						</p>
+						<p className='font-[500] text-[14px] underline text-white/40'>
+							<a href=''>Пользовательское соглашение</a>
+						</p>
 					</div>
 					<img src='/readycode.png' alt='' />
 				</div>
@@ -336,10 +335,10 @@ const Footer = () => {
 
 						<div className=' mt-[20px]'>
 							<p className='font-[500] text-[14px] underline text-white/40'>
-								<a href="">Политика конфиденциальности</a>
+								<a href=''>Политика конфиденциальности</a>
 							</p>
 							<p className='font-[500] text-[14px] underline text-white/40'>
-								<a href="">Пользовательское соглашение</a>
+								<a href=''>Пользовательское соглашение</a>
 							</p>
 						</div>
 					</div>

@@ -1,7 +1,7 @@
 // src/App.tsx
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import Footer from './components/footer/Footer'
 import Navigation from './components/nav/Navigation'
-import Footer from './footer/Footer'
 import { SearchProvider } from './hooks/SearchContext'
 import CatalogPage from './pages/CatalogPage'
 import HomePage from './pages/HomePage'
@@ -16,9 +16,9 @@ function App() {
 						<Navigation />
 						<Routes>
 							<Route path='/' element={<HomePage />} />
-
 							<Route path='/catalog/:type/*' element={<CatalogPage />} />
-							<Route path="/product" element={<ProductPage />} /> {/* Маршрут для страницы товара */}
+							<Route path='/product' element={<ProductPage />} />{' '}
+							{/* Маршрут для страницы товара */}
 						</Routes>
 					</div>
 					<Footer />

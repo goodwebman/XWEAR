@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
+
 @font-face {
 	font-family: 'RFDewiExtended'; /*  Название шрифта, которое вы будете использовать в Tailwind */
 	src: url('./fonts/RFDewiExpanded-Black.woff2') format('woff2'),
@@ -111,7 +112,7 @@ body {
 }
 
 .scrollable-container::-webkit-scrollbar-track {
-	background: #E1E1E1;
+	background: #e1e1e1;
 }
 
 .scrollable-container::-webkit-scrollbar-thumb {
@@ -122,7 +123,7 @@ select:focus,
 select:hover,
 option:hover,
 option:focus {
-  border:none;
-  outline:none;
-  border:transparent;
+	border: none;
+	outline: none;
+	border: transparent;
 }
