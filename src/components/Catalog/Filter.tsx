@@ -56,15 +56,20 @@ function Filter({ onFilterChange, products, initialFilters }: FilterProps) {
 	}, [filters])
 
 	useEffect(() => {
-		const handleResize = () => {
-			setShowFilters(window.innerWidth >= 1000)
-		}
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 1000);
+            setShowFilters(window.innerWidth >= 1000)
+        };
 
-		window.addEventListener('resize', handleResize)
-		return () => {
-			window.removeEventListener('resize', handleResize)
-		}
-	}, [])
+
+        handleResize()
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
 
 	
 

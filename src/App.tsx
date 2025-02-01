@@ -5,6 +5,7 @@ import Footer from './footer/Footer'
 import { SearchProvider } from './hooks/SearchContext'
 import CatalogPage from './pages/CatalogPage'
 import HomePage from './pages/HomePage'
+import ProductPage from './pages/ProductPage'
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 							<Route path='/' element={<HomePage />} />
 
 							<Route path='/catalog/:type/*' element={<CatalogPage />} />
+							<Route path="/product" element={<ProductPage />} /> {/* Маршрут для страницы товара */}
 						</Routes>
 					</div>
 					<Footer />
