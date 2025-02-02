@@ -1,9 +1,12 @@
 {
-  "name": "xwear",
+  "homepage": "https://goodwebman/github.io/XWEAR",
+  "name": "XWEAR",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
@@ -18,7 +21,9 @@
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "flowbite-react": "^0.10.2",
+    "gh": "^2.8.9",
     "lucide-react": "^0.474.0",
+    "pages": "^0.0.16",
     "path": "^0.12.7",
     "rc-slider": "^11.1.8",
     "react": "^18.3.1",
