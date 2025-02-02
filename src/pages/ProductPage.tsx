@@ -166,7 +166,7 @@ function ProductPage() {
 
 								<button
 									onClick={handleAddToCart}
-									className='bg-[#121214] p-[23px_40px] text-white max-[600px]:p-[10px_10px] rounded max-[600px]:text-[14px] cursor-pointer'
+									className='bg-[#121214] p-[23px_40px] text-white max-[600px]:p-[10px_10px] hover:scale-105 rounded max-[600px]:text-[14px] cursor-pointer'
 								>
 									Добавить в корзину
 								</button>

@@ -93,6 +93,7 @@ const Cart: React.FC = () => {
 											{item.brand} {item.model}
 										</p>
 										<Link
+										onClick={closeCart}
 											to={`/product?type=${item.type}&category=${item.category}&brand=${item.brand}&model=${item.model}`}
 										>
 											<img src={item.image} alt='no image' />

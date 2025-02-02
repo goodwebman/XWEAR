@@ -4,6 +4,7 @@ import { initialProducts } from '../../data'
 import { useSearch } from '../../hooks/SearchContext'
 import Cart from '../basket/Cart'
 import SearchInput from '../catalog/SearchInput'
+import FavoritesDrawer from '../favs/Favorites'
 
 interface NavItem {
 	name: string
@@ -346,11 +347,7 @@ const Navigation: React.FC = () => {
 
 					{!showSearchInput && (
 						<div className='flex items-center gap-[32px]'>
-							<button className='cursor-pointer'>
-								<img src='/favorites.svg' alt='fav' />
-							</button>
-
-							<Cart />
+							<Cart /> <FavoritesDrawer />
 						</div>
 					)}
 				</div>
