@@ -48,7 +48,7 @@ const Navigation: React.FC = () => {
 								/>
 							</svg>
 						</button>
-						<a href='/XWEAR/'>
+						<a href='/'>
 							<img src={Logo} alt='' />
 						</a>
 
@@ -267,7 +267,7 @@ const Navigation: React.FC = () => {
 						</button>
 					)}
 
-					{isMainPage === '/XWEAR/' && <button className='w-[18px]'></button>}
+					{isMainPage === 'XWEAR' && <button className='w-[18px]'></button>}
 
 					{!showSearchInput && (
 						<div className='flex items-center gap-[32px]'>
