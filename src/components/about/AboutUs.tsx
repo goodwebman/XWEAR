@@ -109,7 +109,7 @@ const AboutUs = () => {
 							<div>
 								<h1 className='uppercase font-[900] text-[15px] relative '>
 									<div className='absolute h-[3.5px] w-[138px] top-[16.7px] rounded-2xl bg-[#49D0FF] z-0 '></div>
-									Бесплатная доставка <br /> до России
+									Бесплатная доставка <br className='min-[1350px]:hidden' /> до России
 								</h1>
 								<p className='text-[14px] leading-[20px] pt-[4px] font-[600]'>
 									Доставим вам заказ абсолютно <br /> бесплатно до России

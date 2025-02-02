@@ -1,62 +1,17 @@
-import useFavoritesStore from '@/store/FavoriteStore'
-import React, { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router'
-import useCartStore from '../../store/basketStore'
 import { initialProducts } from '@/data'
+import useFavoritesDrawer from '@/hooks/useFavoritesDrawer'
+import React from 'react'
+import { Link } from 'react-router'
 
 const FavoritesDrawer: React.FC = () => {
-	const [isDrawerOpen, setIsDrawerOpen] = useState(false)
-	const favorites = useFavoritesStore(state => state.favorites)
-	
-	const removeFavorite = useFavoritesStore(state => state.removeFavorite)
-	const addItem = useCartStore(state => state.addItem)
-
-   
-
-	const toggleDrawer = () => {
-		setIsDrawerOpen(prev => !prev)
-	}
-
-	const closeDrawer = () => {
-		setIsDrawerOpen(false)
-	}
-	const drawerRef = useRef<HTMLDivElement>(null)
-
-	useEffect(() => {
-		const handleClickOutside = (event: MouseEvent) => {
-			if (
-				drawerRef.current &&
-				!drawerRef.current.contains(event.target as Node)
-			) {
-				closeDrawer()
-			}
-		}
-
-		if (isDrawerOpen) {
-			document.addEventListener('mousedown', handleClickOutside)
-		}
-
-		return () => {
-			document.removeEventListener('mousedown', handleClickOutside)
-		}
-	}, [isDrawerOpen, closeDrawer])
-
-	const handleAddToCard = (id: string) => {
-		const findProduct = JSON.parse(
-			localStorage.getItem('products') || '[]'
-		).find((item: any) => item.id === id)
-		if (findProduct) {
-			addItem({
-				id: findProduct.id,
-				price: findProduct.price,
-				type: findProduct.type,
-				image: findProduct.images,
-				category: findProduct.category,
-				brand: findProduct.brand,
-				model: findProduct.model,
-			})
-		}
-	}
+	const {
+		isDrawerOpen,
+		toggleDrawer,
+		closeDrawer,
+		favorites,
+		removeFavorite,
+		drawerRef,
+	} = useFavoritesDrawer()
 
 	return (
 		<div className='flex items-center'>
@@ -104,62 +59,78 @@ const FavoritesDrawer: React.FC = () => {
 					</button>
 				</div>
 
-				
 				{/* Содержимое Избранное */}
-                <div className="p-4 overflow-y-auto h-[calc(100%-120px)]">
-                    {favorites.length === 0 ? (
-                        <p>Список избранных пуст</p>
-                    ) : (
-                        <ul>
-                           {favorites.map((favoriteId) => {
-                                const item = initialProducts.find((product: any) => product.id === favoriteId)
-                                if (item) {
-                                    return (<li key={favoriteId} className="flex items-center justify-between py-2 border-b last:border-b-0">
-                                        <Link onClick={closeDrawer} to={`/product?type=${item.type}&category=${item.category}&brand=${item.brand}&model=${item.model}`} className="flex items-center gap-2">
-                                              <img src={item.image} alt={item.brand + ' ' + item.model} className="w-16 h-16 object-cover rounded" />
-                                              <div className="flex-1">
-                                                  <p className="font-semibold">{item.brand} {item.model}</p>
-                                                 <div className='flex items-center gap-2'>
-                                                      <p>Цена: {item.price}</p>
-                                                  </div>
-                                              </div>
-                                        </Link>
-                                        <div className='flex gap-2'>
-                                              
-                                                    <button
-                                                    onClick={() => removeFavorite(favoriteId)}
-                                                    className="text-red-500 hover:text-red-700 focus:outline-none"
-                                                >
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        fill="none"
-                                                        viewBox="0 0 24 24"
-                                                        strokeWidth={1.5}
-                                                        stroke="currentColor"
-                                                        className="w-5 h-5"
-                                                    >
-                                                        <path
-                                                            strokeLinecap="round"
-                                                            strokeLinejoin="round"
-                                                            d="M6 18L18 6M6 6l12 12"
-                                                        />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        </li>
-                                    )
-                                } else {
-                                    return (
-                                          <li key={favoriteId} className="py-2 border-b last:border-b-0">
-                                            Товар удален
-                                        </li>
-                                    )
-                                }
-
-                            })}
-                        </ul>
-                    )}
-                </div>
+				<div className='p-4 overflow-y-auto h-[calc(100%-120px)]'>
+					{favorites.length === 0 ? (
+						<p>Список избранных пуст</p>
+					) : (
+						<ul>
+							{favorites.map(favoriteId => {
+								const item = initialProducts.find(
+									(product: any) => product.id === favoriteId
+								)
+								if (item) {
+									return (
+										<li
+											key={favoriteId}
+											className='flex items-center justify-between py-8 border-b last:border-b-0'
+										>
+											<Link
+												onClick={closeDrawer}
+												to={`/product?type=${item.type}&category=${item.category}&brand=${item.brand}&model=${item.model}`}
+												className='flex items-center gap-2'
+											>
+												<img
+													src={item.image}
+													alt={item.brand + ' ' + item.model}
+													className='w-32 h-32 object-cover rounded'
+												/>
+												<div className='flex-1'>
+													<p className='font-semibold'>
+														{item.brand} {item.model}
+													</p>
+													<div className='flex items-center gap-2'>
+														<p>Цена: {item.price}</p>
+													</div>
+												</div>
+											</Link>
+											<div className='flex gap-2'>
+												<button
+													onClick={() => removeFavorite(favoriteId)}
+													className='text-red-500 hover:text-red-700 focus:outline-none'
+												>
+													<svg
+														xmlns='http://www.w3.org/2000/svg'
+														fill='none'
+														viewBox='0 0 24 24'
+														strokeWidth={1.5}
+														stroke='currentColor'
+														className='w-5 h-5'
+													>
+														<path
+															strokeLinecap='round'
+															strokeLinejoin='round'
+															d='M6 18L18 6M6 6l12 12'
+														/>
+													</svg>
+												</button>
+											</div>
+										</li>
+									)
+								} else {
+									return (
+										<li
+											key={favoriteId}
+											className='py-2 border-b last:border-b-0'
+										>
+											Товар удален
+										</li>
+									)
+								}
+							})}
+						</ul>
+					)}
+				</div>
 			</div>
 			{isDrawerOpen && (
 				<div

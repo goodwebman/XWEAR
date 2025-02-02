@@ -1,103 +1,26 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router'
-import { initialProducts } from '../../data'
+import useNav from '@/hooks/useNav'
 import { useSearch } from '../../hooks/SearchContext'
 import Cart from '../basket/Cart'
 import SearchInput from '../catalog/SearchInput'
 import FavoritesDrawer from '../favs/Favorites'
 
-interface NavItem {
-	name: string
-	path: string
-	dropdown?: NavItem[]
-}
-
 const Navigation: React.FC = () => {
-	const { handleSearch } = useSearch() // Получаем handleSearch из контекста
-
-	const [showSearchInput, setShowSearchInput] = useState<boolean>(false)
-	const location = useLocation()
-	const isCatalogPage = location.pathname.startsWith('/catalog')
-	const isProductPage = location.pathname.startsWith('/product')
-	const isMainPage = location.pathname
-
-	const handleClearSearch = () => {
-		handleSearch('') // Сбрасываем поиск на пустую строку
-	}
-
-	const handleToggleSearchInput = useCallback(() => {
-		setShowSearchInput(!showSearchInput)
-		handleClearSearch()
-	}, [showSearchInput])
-
-	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
-
-	const menuRef = useRef<HTMLDivElement>(null)
-
-	const toggleMenu = (): void => {
-		setIsMenuOpen(!isMenuOpen)
-	}
-	const handleClickOutside = (event: MouseEvent): void => {
-		if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-			setIsMenuOpen(false)
-		}
-	}
-
-	useEffect(() => {
-		if (isMenuOpen) {
-			document.addEventListener('mousedown', handleClickOutside)
-		} else {
-			document.removeEventListener('mousedown', handleClickOutside)
-		}
-
-		return () => {
-			document.removeEventListener('mousedown', handleClickOutside)
-		}
-	}, [isMenuOpen])
-
-	//updaTE
-
-	const navigate = useNavigate()
-	const [_, setTypes] = useState<string[]>([])
-	const [navItems, setNavItems] = useState<NavItem[]>([])
-	const [openDropdown, setOpenDropdown] = useState<string | null>(null)
-	const dropdownRef = useRef<HTMLDivElement | null>(null)
-
-	useEffect(() => {
-		const uniqueTypes = [
-			...new Set(initialProducts.map(product => product.type)),
-		].map(type => type.toLowerCase())
-		setTypes(uniqueTypes)
-		const initialNavItems = [
-			{
-				name: 'Каталог',
-				path: '/catalog',
-				dropdown: uniqueTypes.map(type => ({
-					name: type.charAt(0).toUpperCase() + type.slice(1),
-					path: `/catalog/${type}`,
-				})),
-			},
-			{
-				name: 'Расчет стоимости',
-				path: '/',
-			},
-			{
-				name: 'Информация',
-				path: '/',
-			},
-		]
-		setNavItems(initialNavItems)
-	}, [])
-
-	const handleToggleDropdown = (name: string) => {
-		setOpenDropdown(openDropdown === name ? null : name)
-	}
-
-	const handleNavClick = (path: string) => {
-		setIsMenuOpen(!isMenuOpen)
-		setOpenDropdown(null)
-		navigate(path)
-	}
+	const { handleSearch } = useSearch()
+	const {
+		showSearchInput,
+		handleToggleSearchInput,
+		isCatalogPage,
+		isProductPage,
+		isMainPage,
+		isMenuOpen,
+		toggleMenu,
+		menuRef,
+		navItems,
+		openDropdown,
+		handleToggleDropdown,
+		handleNavClick,
+		dropdownRef,
+	} = useNav()
 
 	return (
 		<nav className='bg-[#121214] '>

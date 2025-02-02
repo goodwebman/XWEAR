@@ -9,12 +9,9 @@ function ProductList({
 	type,
 	category,
 	price,
-	size,
-	color,
 	brand,
 	model,
 	image,
-	colorHex,
 }: Product) {
 	const { favorites, addFavorite, removeFavorite } = useFavoritesStore()
 	const navigate = useNavigate()
@@ -31,7 +28,6 @@ function ProductList({
 	}
 
 	const handleProductClick = () => {
-		// Construct the URL with parameters
 		const url = `/product?type=${encodeURIComponent(
 			type
 		)}&category=${encodeURIComponent(category)}&brand=${encodeURIComponent(

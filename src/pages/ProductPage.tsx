@@ -1,87 +1,29 @@
 import Cart from '@/components/basket/Cart'
-import { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Categories from '../components/categories/Categories'
 import { initialProducts } from '../data'
 import { handsomePrice } from '../libs/handsomePrice'
-import useFavoritesStore from '../store/FavoriteStore'
-import useCartStore from '../store/basketStore'
 
-import toast, { Toaster } from 'react-hot-toast'
+import useProductDetails from '@/hooks/useProductDetails'
+import { Toaster } from 'react-hot-toast'
 
 function ProductPage() {
-	const location = useLocation()
-	const products = initialProducts
-	const queryParams = new URLSearchParams(location.search)
-
-	const type = queryParams.get('type')
-	const category = queryParams.get('category')
-	const brand = queryParams.get('brand')
-	const model = queryParams.get('model')
-
-	const foundProduct = products.find(
-		p =>
-			p.type === type &&
-			p.category === category &&
-			p.brand === brand &&
-			p.model === model
-	)
-
-	const { image, price, id, color } = foundProduct
-	const sizes = [
-		36, 36.5, 37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43,
-		43.5, 44, 44.5,
-	]
-
-	if (!foundProduct) {
-		return <div>Product not found</div>
-	}
-	const [selectedSize, setSelectedSize] = useState<string | null>(
-		sizes[0].toString()
-	)
-
-	const { favorites, addFavorite, removeFavorite } = useFavoritesStore()
-
-	const isFavorite = favorites.includes(id)
-
-	const handleToggleFavorite = e => {
-		e.stopPropagation()
-		if (isFavorite) {
-			removeFavorite(id)
-		} else {
-			addFavorite(id)
-		}
-	}
-
-	const handleSizeClick = (size: string) => {
-		setSelectedSize(size)
-	}
-
-	const { addItem } = useCartStore()
-
-	const handleAddToCart = () => {
-		if (selectedSize) {
-			addItem({
-				id,
-				price,
-				brand,
-				model,
-				image,
-				type,
-				category,
-			})
-
-			toast.success(
-				`Товар "${foundProduct.brand} ${foundProduct.model}" размера ${selectedSize} добавлен в корзину!`
-			)
-		} else {
-			alert('Выберете размер')
-		}
-	}
-
-	useEffect(() => {
-		window.scrollTo(0, 0)
-	}, [])
+	const {
+		image,
+		brand,
+		type,
+		price,
+		model,
+		sizes,
+		id,
+		color,
+		selectedSize,
+		isFavorite,
+		handleToggleFavorite,
+		handleSizeClick,
+		handleAddToCart,
+		category,
+	} = useProductDetails()
 
 	return (
 		<>
@@ -131,7 +73,7 @@ function ProductPage() {
 						{/* Product Details */}
 						<div className='md:w-1/2'>
 							<h1 className='text-3xl font-bold mb-4'>
-								{foundProduct.brand} {foundProduct.model}
+								{brand} {model}
 							</h1>
 							<div className='mb-4'>
 								<p>EU Размеры:</p>

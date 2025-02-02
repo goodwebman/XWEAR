@@ -47,7 +47,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title,  links  }) => {
         {links.map((link, index) => (
           <a
             key={index}
-            href={link.href}
+            href=''
             className="block py-2  rounded"
           >
             {link.text}

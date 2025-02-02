@@ -1,42 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react'
+import useCartBasket from '@/hooks/useCartBasket'
+import React from 'react'
 import { Link } from 'react-router'
-import useCartStore from '../../store/basketStore'
 
 const Cart: React.FC = () => {
-	const [isBasketOpen, setIsBasketOpen] = useState(false)
-	const cartItems = useCartStore(state => state.cartItems)
-	const removeItem = useCartStore(state => state.removeItem)
-	const updateItemQuantity = useCartStore(state => state.updateItemQuantity)
-	const clearCart = useCartStore(state => state.clearCart)
-	const total = useCartStore(state => state.getTotal)
-
-	const toggleCart = () => {
-		setIsBasketOpen(prev => !prev)
-	}
-
-	const closeCart = () => {
-		setIsBasketOpen(false)
-	}
-
-	const cartRef = useRef<HTMLDivElement>(null)
-
-	useEffect(() => {
-		const handleClickOutside = (event: MouseEvent) => {
-			if (cartRef.current && !cartRef.current.contains(event.target as Node)) {
-				closeCart()
-			}
-		}
-
-		if (isBasketOpen) {
-			document.addEventListener('mousedown', handleClickOutside)
-		}
-
-		return () => {
-			document.removeEventListener('mousedown', handleClickOutside)
-		}
-	}, [isBasketOpen, closeCart])
-
-	
+	const {
+		isBasketOpen,
+		toggleCart,
+		cartItems,
+		removeItem,
+		updateItemQuantity,
+		clearCart,
+		closeCart,
+		total,
+		cartRef,
+	} = useCartBasket()
 
 	return (
 		<div className='flex gap-[6px] items-center'>
@@ -93,7 +70,7 @@ const Cart: React.FC = () => {
 											{item.brand} {item.model}
 										</p>
 										<Link
-										onClick={closeCart}
+											onClick={closeCart}
 											to={`/product?type=${item.type}&category=${item.category}&brand=${item.brand}&model=${item.model}`}
 										>
 											<img src={item.image} alt='no image' />
