@@ -184,7 +184,7 @@ function PriceFilter({ onFilterChange, initialFilters }: PriceFilterProps) {
 				<div
 					style={{
 						left: `${(minPrice / MAX_PRICE_LIMIT) * 100}%`,
-						right: `${100 - (maxPrice / MAX_PRICE_LIMIT) * 100}%`,
+						right: `${100 - (maxPrice  / MAX_PRICE_LIMIT) * 100}%`,
 					}}
 					className='absolute h-2 bg-blue-500 rounded-full top-0 transition-all duration-100'
 				/>
@@ -194,7 +194,7 @@ function PriceFilter({ onFilterChange, initialFilters }: PriceFilterProps) {
 				/>
 				<div
 					ref={maxThumbRef}
-					className='absolute w-4 h-4 bg-white border border-gray-300 rounded-full cursor-pointer -top-1 bottom-[-230px] transition-all duration-100'
+					className='absolute w-4 h-4 bg-white border border-gray-300 rounded-full cursor-pointer -top-1   transition-all duration-100'
 				/>
 			</div>
 		</div>

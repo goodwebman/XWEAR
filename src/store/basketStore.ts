@@ -2,7 +2,7 @@ import { create } from 'zustand';
 
 interface Item {
     id: string;
-    img: string;
+    image: string;
     brand: string
     model: string
     price: number;
