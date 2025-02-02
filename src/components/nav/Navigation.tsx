@@ -3,6 +3,8 @@ import { useSearch } from '../../hooks/SearchContext'
 import Cart from '../basket/Cart'
 import SearchInput from '../catalog/SearchInput'
 import FavoritesDrawer from '../favs/Favorites'
+import Logo from '/logo.svg'
+import search from '/search.svg'
 
 const Navigation: React.FC = () => {
 	const { handleSearch } = useSearch()
@@ -14,7 +16,6 @@ const Navigation: React.FC = () => {
 		isMainPage,
 		isMenuOpen,
 		toggleMenu,
-		menuRef,
 		navItems,
 		openDropdown,
 		handleToggleDropdown,
@@ -48,7 +49,7 @@ const Navigation: React.FC = () => {
 							</svg>
 						</button>
 						<a href='/'>
-							<img src='/logo.svg' alt='' />
+							<img src={Logo} alt='' />
 						</a>
 
 						<button
@@ -262,11 +263,11 @@ const Navigation: React.FC = () => {
 							onClick={handleToggleSearchInput}
 							className='cursor-pointer'
 						>
-							<img src='/search.svg' alt='search' />
+							<img src={search} alt='search' />
 						</button>
 					)}
 
-					{isMainPage === '/' && <button className='w-[18px]'></button>}
+					{isMainPage === '/XWEAR/' && <button className='w-[18px]'></button>}
 
 					{!showSearchInput && (
 						<div className='flex items-center gap-[32px]'>

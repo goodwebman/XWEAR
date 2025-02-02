@@ -60,7 +60,7 @@ const FavoritesDrawer: React.FC = () => {
 				</div>
 
 				{/* Содержимое Избранное */}
-				<div className='p-4 overflow-y-auto h-[calc(100%-120px)]'>
+				<div className='p-4 overflow-y-auto scrollable-container h-[calc(100%-120px)]'>
 					{favorites.length === 0 ? (
 						<p>Список избранных пуст</p>
 					) : (

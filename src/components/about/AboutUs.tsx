@@ -1,3 +1,10 @@
+import box from '/box.png'
+import people from '/people.png'
+import check from '/check.png'
+
+
+
+
 const AboutUs = () => {
 	return (
 		<section className=''>
@@ -104,7 +111,7 @@ const AboutUs = () => {
 					<div className='bg-white p-[40px]  rounded-[8px] shadow-2xl max-w-[1600px]:min-w-[470px] flex  flex-col max-[1350px]:flex-row max-[1350px]:justify-between max-[731px]:flex-col max-[731px]:items-center max-[731px]:justify-start max-[1200px]:justify-between gap-[40px] '>
 						<div className='flex max-[1200px]:flex-col items-start max-[731px]:min-w-[255px] gap-[28px]'>
 							<div>
-								<img src='box.png' alt='box' />
+								<img src={box} alt='box' />
 							</div>
 							<div>
 								<h1 className='uppercase font-[900] text-[15px] relative '>
@@ -119,7 +126,7 @@ const AboutUs = () => {
 
 						<div className='flex max-[1200px]:flex-col items-start max-[731px]:min-w-[255px] gap-[28px]'>
 							<div>
-								<img className='w-[52px] ' src='people.png' alt='box' />
+								<img className='w-[52px] ' src={people} alt='box' />
 							</div>
 							<div>
 								<h1 className='uppercase font-[900] text-[15px] relative'>
@@ -134,7 +141,7 @@ const AboutUs = () => {
 
 						<div className='flex max-[1200px]:flex-col items-start max-[731px]:min-w-[255px] gap-[28px]'>
 							<div>
-								<img src='check.png' alt='box' />
+								<img src={check} alt='box' />
 							</div>
 							<div>
 								<h1 className='uppercase font-[900] text-[15px] relative'>

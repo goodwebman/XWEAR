@@ -1,3 +1,36 @@
+import shoes1 from '/shoes1.png'
+import shoes10 from '/shoes10.png'
+import shoes11 from '/shoes11.png'
+import shoes12 from '/shoes12.png'
+import shoes13 from '/shoes13.png'
+import shoes14 from '/shoes14.png'
+import shoes15 from '/shoes15.png'
+import shoes16 from '/shoes16.png'
+import shoes2 from '/shoes2.png'
+import shoes3 from '/shoes3.png'
+import shoes4 from '/shoes4.png'
+import shoes5 from '/shoes5.png'
+import shoes6 from '/shoes6.png'
+import shoes7 from '/shoes7.png'
+import shoes8 from '/shoes8.png'
+import shoes9 from '/shoes9.png'
+
+import clothes1 from '/clothes1.png'
+import clothes2 from '/clothes2.png'
+import clothes3 from '/clothes3.png'
+import clothes4 from '/clothes4.png'
+
+import accessories1 from '/accessories1.png'
+import accessories2 from '/accessories2.png'
+import accessories3 from '/accessories3.png'
+import accessories4 from '/accessories4.png'
+
+import sliderbg from '/slider-bg.jpg'
+
+import blog1 from '/blog1.png'
+import blog2 from '/blog2.png'
+import blog3 from '/blog3.png'
+
 // FOR SLIDER
 
 import { Product } from '../types'
@@ -9,7 +42,7 @@ export const slides = [
 		description:
 			'Одежда от известные брендов у нас в каталоге. Только качественные вещи.',
 		buttonText: 'Перейти в каталог',
-		image: 'slider-bg.jpg',
+		image: sliderbg,
 	},
 	{
 		id: 2,
@@ -18,7 +51,7 @@ export const slides = [
 		description:
 			'Одежда от известные брендов у нас в каталоге. Только качественные вещи.',
 		buttonText: 'Перейти в каталог',
-		image: 'slider-bg.jpg',
+		image: sliderbg,
 	},
 	{
 		id: 3,
@@ -26,7 +59,7 @@ export const slides = [
 		description:
 			'Одежда от известные брендов у нас в каталоге. Только качественные вещи.',
 		buttonText: 'Перейти в каталог',
-		image: 'slider-bg.jpg',
+		image: sliderbg,
 	},
 	{
 		id: 4,
@@ -34,7 +67,7 @@ export const slides = [
 		description:
 			'Одежда от известные брендов у нас в каталоге. Только качественные вещи.',
 		buttonText: 'Перейти в каталог',
-		image: 'slider-bg.jpg',
+		image: sliderbg,
 	},
 ]
 
@@ -50,7 +83,7 @@ export const shoes = [
 		color: 'Черный',
 		brand: 'Nike',
 		model: 'Air Max 90',
-		image: '/shoes1.png',
+		image: shoes1,
 	},
 	{
 		id: '2',
@@ -61,7 +94,7 @@ export const shoes = [
 		color: 'Белый',
 		brand: 'Adidas',
 		model: 'Stan Smith',
-		image: '/shoes2.png',
+		image: shoes2,
 	},
 	{
 		id: '3',
@@ -72,7 +105,7 @@ export const shoes = [
 		color: 'Коричневый',
 		brand: 'Timberland',
 		model: '6-Inch Premium',
-		image: '/shoes3.png',
+		image: shoes3,
 	},
 	{
 		id: '4',
@@ -83,7 +116,7 @@ export const shoes = [
 		color: 'Серый',
 		brand: 'New Balance',
 		model: '574',
-		image: '/shoes4.png',
+		image: shoes4,
 	},
 	{
 		id: '5',
@@ -94,7 +127,7 @@ export const shoes = [
 		color: 'Синий',
 		brand: 'Teva',
 		model: 'Hurricane XLT2',
-		image: '/shoes5.png',
+		image: shoes5,
 	},
 	{
 		id: '6',
@@ -105,7 +138,7 @@ export const shoes = [
 		color: 'Красный',
 		brand: 'Converse',
 		model: 'Chuck Taylor All Star',
-		image: '/shoes6.png',
+		image: shoes6,
 	},
 	{
 		id: '7',
@@ -116,7 +149,7 @@ export const shoes = [
 		color: 'Черный',
 		brand: 'Dr. Martens',
 		model: '1460',
-		image: '/shoes7.png',
+		image: shoes7,
 	},
 	{
 		id: '8',
@@ -127,7 +160,7 @@ export const shoes = [
 		color: 'Белый',
 		brand: 'Puma',
 		model: 'RS-X',
-		image: '/shoes8.png',
+		image: shoes8,
 	},
 	{
 		id: '9',
@@ -138,7 +171,7 @@ export const shoes = [
 		color: 'Зеленый',
 		brand: 'Birkenstock',
 		model: 'Arizona',
-		image: '/shoes9.png',
+		image: shoes9,
 	},
 	{
 		id: '10',
@@ -149,7 +182,7 @@ export const shoes = [
 		color: 'Серый',
 		brand: 'Nike',
 		model: 'Benassi JDI',
-		image: '/shoes10.png',
+		image: shoes10,
 	},
 	{
 		id: '11',
@@ -160,7 +193,7 @@ export const shoes = [
 		color: 'Оранжевый',
 		brand: 'Reebok',
 		model: 'Classic Leather',
-		image: '/shoes11.png',
+		image: shoes11,
 	},
 	{
 		id: '12',
@@ -171,7 +204,7 @@ export const shoes = [
 		color: 'Желтый',
 		brand: 'Vans',
 		model: 'Old Skool',
-		image: '/shoes12.png',
+		image: shoes12,
 	},
 	{
 		id: '13',
@@ -182,7 +215,7 @@ export const shoes = [
 		color: 'Коричневый',
 		brand: 'Red Wing',
 		model: 'Iron Ranger',
-		image: '/shoes13.png',
+		image: shoes13,
 	},
 	{
 		id: '14',
@@ -193,7 +226,7 @@ export const shoes = [
 		color: 'Синий',
 		brand: 'Asics',
 		model: 'Gel-Kayano',
-		image: '/shoes14.png',
+		image: shoes14,
 	},
 	{
 		id: '15',
@@ -204,7 +237,7 @@ export const shoes = [
 		color: 'Черный',
 		brand: 'Crocs',
 		model: 'Classic Clog',
-		image: '/shoes15.png',
+		image: shoes15,
 	},
 	{
 		id: '16',
@@ -215,7 +248,7 @@ export const shoes = [
 		color: 'Белый',
 		brand: 'Adidas',
 		model: 'Adilette',
-		image: '/shoes16.png',
+		image: shoes16,
 	},
 ]
 
@@ -231,7 +264,7 @@ export const clothes = [
 		color: 'Белый',
 		brand: 'Nike',
 		model: 'Sportswear Tee',
-		image: '/clothes1.png',
+		image: clothes1,
 	},
 	{
 		id: '18',
@@ -242,7 +275,7 @@ export const clothes = [
 		color: 'Синий',
 		brand: "Levi's",
 		model: '501 Original',
-		image: '/clothes2.png',
+		image: clothes2,
 	},
 	{
 		id: '19',
@@ -253,7 +286,7 @@ export const clothes = [
 		color: 'Черный',
 		brand: 'The North Face',
 		model: 'Nuptse Jacket',
-		image: '/clothes3.png',
+		image: clothes3,
 	},
 	{
 		id: '20',
@@ -264,7 +297,7 @@ export const clothes = [
 		color: 'Серый',
 		brand: 'Adidas',
 		model: 'Trefoil Crew',
-		image: '/clothes4.png',
+		image: clothes4,
 	},
 	{
 		id: '21',
@@ -275,7 +308,7 @@ export const clothes = [
 		color: 'Хаки',
 		brand: 'Patagonia',
 		model: 'Baggies Shorts',
-		image: '/clothes1.png',
+		image: clothes2,
 	},
 	{
 		id: '22',
@@ -286,7 +319,7 @@ export const clothes = [
 		color: 'Голубой',
 		brand: 'Ralph Lauren',
 		model: 'Oxford Shirt',
-		image: '/clothes3.png',
+		image: clothes3,
 	},
 	{
 		id: '23',
@@ -297,7 +330,7 @@ export const clothes = [
 		color: 'Красный',
 		brand: 'Zara',
 		model: 'A-Line Dress',
-		image: '/clothes2.png',
+		image: clothes2,
 	},
 	{
 		id: '24',
@@ -308,7 +341,7 @@ export const clothes = [
 		color: 'Бежевый',
 		brand: 'Uniqlo',
 		model: 'Ultra Stretch',
-		image: '/clothes1.png',
+		image: clothes1,
 	},
 	{
 		id: '25',
@@ -319,7 +352,7 @@ export const clothes = [
 		color: 'Черный',
 		brand: 'Champion',
 		model: 'Reverse Weave',
-		image: '/clothes2.png',
+		image: clothes3,
 	},
 	{
 		id: '26',
@@ -330,7 +363,7 @@ export const clothes = [
 		color: 'Розовый',
 		brand: 'H&M',
 		model: 'Ribbed Tank',
-		image: '/clothes4.png',
+		image: clothes4,
 	},
 	{
 		id: '27',
@@ -341,7 +374,7 @@ export const clothes = [
 		color: 'Зеленый',
 		brand: 'Mango',
 		model: 'Pleated Skirt',
-		image: '/clothes3.png',
+		image: clothes2,
 	},
 	{
 		id: '28',
@@ -352,7 +385,7 @@ export const clothes = [
 		color: 'Серый',
 		brand: 'Hugo Boss',
 		model: 'Regular Fit Suit',
-		image: '/clothes2.png',
+		image: clothes1,
 	},
 	{
 		id: '29',
@@ -363,7 +396,7 @@ export const clothes = [
 		color: 'Темно-синий',
 		brand: 'Burberry',
 		model: 'Classic Trench',
-		image: '/clothes1.png',
+		image: clothes4,
 	},
 	{
 		id: '30',
@@ -374,7 +407,7 @@ export const clothes = [
 		color: 'Белый',
 		brand: 'Columbia',
 		model: 'Pike Lake Vest',
-		image: '/clothes4.png',
+		image: clothes3,
 	},
 	{
 		id: '31',
@@ -385,7 +418,7 @@ export const clothes = [
 		color: 'Черный',
 		brand: 'Under Armour',
 		model: 'Rival Fleece',
-		image: '/clothes2.png',
+		image: clothes1,
 	},
 	{
 		id: '32',
@@ -396,7 +429,7 @@ export const clothes = [
 		color: 'Фиолетовый',
 		brand: 'Lululemon',
 		model: 'Align Leggings',
-		image: '/clothes3.png',
+		image: clothes2,
 	},
 ]
 
@@ -410,7 +443,7 @@ export const accessories = [
 		color: 'Черный',
 		brand: 'Carhartt',
 		model: 'Watch Hat',
-		image: '/accessories1.png',
+		image: accessories1,
 	},
 	{
 		id: '34',
@@ -421,7 +454,7 @@ export const accessories = [
 		color: 'Коричневый',
 		brand: 'Fjallraven',
 		model: 'Kanken Backpack',
-		image: '/accessories2.png',
+		image: accessories2,
 	},
 	{
 		id: '35',
@@ -432,7 +465,7 @@ export const accessories = [
 		color: 'Серый',
 		brand: 'Ray-Ban',
 		model: 'Wayfarer',
-		image: '/accessories3.png',
+		image: accessories3,
 	},
 	{
 		id: '36',
@@ -443,7 +476,7 @@ export const accessories = [
 		color: 'Черный',
 		brand: 'Gucci',
 		model: 'Leather Belt',
-		image: '/accessories4.png',
+		image: accessories4,
 	},
 	{
 		id: '37',
@@ -454,7 +487,7 @@ export const accessories = [
 		color: 'Бежевый',
 		brand: 'Acne Studios',
 		model: 'Wool Scarf',
-		image: '/accessories3.png',
+		image: accessories2,
 	},
 	{
 		id: '38',
@@ -465,7 +498,7 @@ export const accessories = [
 		color: 'Серый',
 		brand: 'The North Face',
 		model: 'Etip Gloves',
-		image: '/accessories2.png',
+		image: accessories1,
 	},
 	{
 		id: '39',
@@ -476,7 +509,7 @@ export const accessories = [
 		color: 'Черный',
 		brand: 'Bellroy',
 		model: 'Slim Wallet',
-		image: '/accessories1.png',
+		image: accessories3,
 	},
 	{
 		id: '40',
@@ -487,7 +520,7 @@ export const accessories = [
 		color: 'Серебристый',
 		brand: 'Casio',
 		model: 'G-Shock',
-		image: '/accessories4.png',
+		image: accessories4,
 	},
 	{
 		id: '41',
@@ -498,7 +531,7 @@ export const accessories = [
 		color: 'Золотой',
 		brand: 'Tiffany & Co',
 		model: 'Return to Tiffany',
-		image: '/accessories3.png',
+		image: accessories3,
 	},
 	{
 		id: '42',
@@ -509,7 +542,7 @@ export const accessories = [
 		color: 'Розовый',
 		brand: 'Swarovski',
 		model: 'Crystal Earrings',
-		image: '/accessories1.png',
+		image: accessories1,
 	},
 	{
 		id: '43',
@@ -520,7 +553,7 @@ export const accessories = [
 		color: 'Синий',
 		brand: 'Pandora',
 		model: 'Heart Pendant',
-		image: '/accessories2.png',
+		image: accessories2,
 	},
 	{
 		id: '44',
@@ -531,7 +564,7 @@ export const accessories = [
 		color: 'Белый',
 		brand: 'New Era',
 		model: '9Forty Cap',
-		image: '/accessories4.png',
+		image: accessories4,
 	},
 	{
 		id: '45',
@@ -542,7 +575,7 @@ export const accessories = [
 		color: 'Черный',
 		brand: 'Herschel',
 		model: 'Little America Backpack',
-		image: '/accessories4.png',
+		image: accessories1,
 	},
 	{
 		id: '46',
@@ -553,7 +586,7 @@ export const accessories = [
 		color: 'Прозрачный',
 		brand: 'Apple',
 		model: 'iPhone Case',
-		image: '/accessories1.png',
+		image: accessories2,
 	},
 	{
 		id: '47',
@@ -564,7 +597,7 @@ export const accessories = [
 		color: 'Коричневый',
 		brand: 'Oakley',
 		model: 'Frogskins',
-		image: '/accessories2.png',
+		image: accessories3,
 	},
 	{
 		id: '48',
@@ -575,7 +608,7 @@ export const accessories = [
 		color: 'Синий',
 		brand: 'Hermès',
 		model: 'Silk Tie',
-		image: '/accessories1.png',
+		image: accessories2,
 	},
 ]
 
@@ -583,7 +616,7 @@ export const ourBlog = [
 	{
 		id: 1,
 		cat: 'Наш блог',
-		img: 'blog1.png',
+		img: blog1,
 		title: 'Делаем скидки на всю женскую одежду осеннего сезона ',
 		desk: 'Мы запускаем акцию. Готовься к осени с лета. На протяжении всего лета покупайте женские осенние вещи со скидками.',
 	},
@@ -591,7 +624,7 @@ export const ourBlog = [
 	{
 		id: 2,
 		cat: 'Наш блог',
-		img: 'blog2.png',
+		img: blog2,
 		title: 'Джинсы для всех друзей. Скидки на большие покупки',
 		desk: 'Мы запускаем акцию. Готовься к осени с лета. На протяжении всего лета покупайте женские осенние вещи со скидками.',
 	},
@@ -599,7 +632,7 @@ export const ourBlog = [
 	{
 		id: 3,
 		cat: 'Наш блог',
-		img: 'blog3.png',
+		img: blog3,
 		title: 'Джинсы для всех друзей. Скидки на большие покупки',
 		desk: 'Мы запускаем акцию. Готовься к осени с лета. На протяжении всего лета покупайте женские осенние вещи со скидками.',
 	},
@@ -607,7 +640,7 @@ export const ourBlog = [
 	{
 		id: 4,
 		cat: 'Наш блог',
-		img: 'blog1.png',
+		img: blog1,
 		title: 'Делаем скидки на всю женскую одежду осеннего сезона ',
 		desk: 'Мы запускаем акцию. Готовься к осени с лета. На протяжении всего лета покупайте женские осенние вещи со скидками.',
 	},
@@ -615,7 +648,7 @@ export const ourBlog = [
 	{
 		id: 5,
 		cat: 'Наш блог',
-		img: 'blog3.png',
+		img: blog3,
 		title: 'Делаем скидки на всю женскую одежду осеннего сезона ',
 		desk: 'Мы запускаем акцию. Готовься к осени с лета. На протяжении всего лета покупайте женские осенние вещи со скидками.',
 	},
@@ -623,7 +656,7 @@ export const ourBlog = [
 	{
 		id: 6,
 		cat: 'Наш блог',
-		img: 'blog2.png',
+		img: blog2,
 		title: 'Делаем скидки на всю женскую одежду осеннего сезона ',
 		desk: 'Мы запускаем акцию. Готовься к осени с лета. На протяжении всего лета покупайте женские осенние вещи со скидками.',
 	},
@@ -631,7 +664,7 @@ export const ourBlog = [
 	{
 		id: 7,
 		cat: 'Наш блог',
-		img: 'blog3.png',
+		img: blog3,
 		title: 'Делаем скидки на всю женскую одежду осеннего сезона ',
 		desk: 'Мы запускаем акцию. Готовься к осени с лета. На протяжении всего лета покупайте женские осенние вещи со скидками.',
 	},
@@ -639,14 +672,14 @@ export const ourBlog = [
 	{
 		id: 8,
 		cat: 'Наш блог',
-		img: 'blog1.png',
+		img: blog1,
 		title: 'Делаем скидки на всю женскую одежду осеннего сезона ',
 		desk: 'Мы запускаем акцию. Готовься к осени с лета. На протяжении всего лета покупайте женские осенние вещи со скидками.',
 	},
 	{
 		id: 9,
 		cat: 'Наш блог',
-		img: 'blog2.png',
+		img: blog2,
 		title: 'Делаем скидки на всю женскую одежду осеннего сезона ',
 		desk: 'Мы запускаем акцию. Готовься к осени с лета. На протяжении всего лета покупайте женские осенние вещи со скидками.',
 	},
@@ -695,7 +728,7 @@ export const initialProducts: Product[] = [
 		color: 'Черный',
 		brand: 'Nike',
 		model: 'Air Max 90',
-		image: '/shoes1.png',
+		image: shoes1,
 		colorHex: '000000',
 	},
 	{
@@ -707,7 +740,7 @@ export const initialProducts: Product[] = [
 		color: 'Белый',
 		brand: 'Adidas',
 		model: 'Stan Smith',
-		image: '/shoes2.png',
+		image: shoes2,
 		colorHex: 'FFFFFF',
 	},
 	{
@@ -719,7 +752,7 @@ export const initialProducts: Product[] = [
 		color: 'Коричневый',
 		brand: 'Timberland',
 		model: '6-Inch Premium',
-		image: '/shoes3.png',
+		image: shoes3,
 		colorHex: '8B4513',
 	},
 	{
@@ -731,7 +764,7 @@ export const initialProducts: Product[] = [
 		color: 'Серый',
 		brand: 'New Balance',
 		model: '574',
-		image: '/shoes4.png',
+		image: shoes4,
 		colorHex: '808080',
 	},
 	{
@@ -743,7 +776,7 @@ export const initialProducts: Product[] = [
 		color: 'Синий',
 		brand: 'Teva',
 		model: 'Hurricane XLT2',
-		image: '/shoes5.png',
+		image: shoes5,
 		colorHex: '0000FF',
 	},
 	{
@@ -755,7 +788,7 @@ export const initialProducts: Product[] = [
 		color: 'Красный',
 		brand: 'Converse',
 		model: 'Chuck Taylor All Star',
-		image: '/shoes6.png',
+		image: shoes6,
 		colorHex: 'FF0000',
 	},
 	{
@@ -767,7 +800,7 @@ export const initialProducts: Product[] = [
 		color: 'Черный',
 		brand: 'Dr. Martens',
 		model: '1460',
-		image: '/shoes7.png',
+		image: shoes7,
 		colorHex: '008000',
 	},
 	{
@@ -779,7 +812,7 @@ export const initialProducts: Product[] = [
 		color: 'Белый',
 		brand: 'Puma',
 		model: 'RS-X',
-		image: '/shoes8.png',
+		image: shoes8,
 		colorHex: 'FFA500',
 	},
 	{
@@ -791,7 +824,7 @@ export const initialProducts: Product[] = [
 		color: 'Зеленый',
 		brand: 'Birkenstock',
 		model: 'Arizona',
-		image: '/shoes9.png',
+		image: shoes9,
 		colorHex: 'FFFF00',
 	},
 	{
@@ -803,7 +836,7 @@ export const initialProducts: Product[] = [
 		color: 'Серый',
 		brand: 'Nike',
 		model: 'Benassi JDI',
-		image: '/shoes10.png',
+		image: shoes10,
 		colorHex: '808080',
 	},
 	{
@@ -815,7 +848,7 @@ export const initialProducts: Product[] = [
 		color: 'Оранжевый',
 		brand: 'Reebok',
 		model: 'Classic Leather',
-		image: '/shoes11.png',
+		image: shoes11,
 		colorHex: 'FFA500',
 	},
 	{
@@ -827,7 +860,7 @@ export const initialProducts: Product[] = [
 		color: 'Желтый',
 		brand: 'Vans',
 		model: 'Old Skool',
-		image: '/shoes12.png',
+		image: shoes12,
 		colorHex: 'FFFF00',
 	},
 	{
@@ -839,7 +872,7 @@ export const initialProducts: Product[] = [
 		color: 'Коричневый',
 		brand: 'Red Wing',
 		model: 'Iron Ranger',
-		image: '/shoes13.png',
+		image: shoes13,
 		colorHex: '8B4513',
 	},
 	{
@@ -851,7 +884,7 @@ export const initialProducts: Product[] = [
 		color: 'Синий',
 		brand: 'Asics',
 		model: 'Gel-Kayano',
-		image: '/shoes14.png',
+		image: shoes14,
 		colorHex: '0000FF',
 	},
 	{
@@ -863,7 +896,7 @@ export const initialProducts: Product[] = [
 		color: 'Черный',
 		brand: 'Crocs',
 		model: 'Classic Clog',
-		image: '/shoes15.png',
+		image: shoes15,
 		colorHex: '000000',
 	},
 	{
@@ -875,9 +908,8 @@ export const initialProducts: Product[] = [
 		color: 'Белый',
 		brand: 'Adidas',
 		model: 'Adilette',
-		image: '/shoes16.png',
+		image: shoes16,
 		colorHex: 'FFFFFF',
-
 	},
 	{
 		id: '17',
@@ -888,7 +920,7 @@ export const initialProducts: Product[] = [
 		color: 'Белый',
 		brand: 'Nike',
 		model: 'Sportswear Tee',
-		image: '/clothes1.png',
+		image: clothes1,
 		colorHex: 'FFFFFF',
 	},
 	{
@@ -900,7 +932,7 @@ export const initialProducts: Product[] = [
 		color: 'Синий',
 		brand: "Levi's",
 		model: '501 Original',
-		image: '/clothes2.png',
+		image: clothes2,
 		colorHex: '0000FF',
 	},
 	{
@@ -912,7 +944,7 @@ export const initialProducts: Product[] = [
 		color: 'Черный',
 		brand: 'The North Face',
 		model: 'Nuptse Jacket',
-		image: '/clothes3.png',
+		image: clothes3,
 		colorHex: '000000',
 	},
 	{
@@ -924,7 +956,7 @@ export const initialProducts: Product[] = [
 		color: 'Серый',
 		brand: 'Adidas',
 		model: 'Trefoil Crew',
-		image: '/clothes4.png',
+		image: clothes4,
 		colorHex: '808080',
 	},
 	{
@@ -937,7 +969,7 @@ export const initialProducts: Product[] = [
 		brand: 'Patagonia',
 		colorHex: '000000',
 		model: 'Baggies Shorts',
-		image: '/clothes1.png',
+		image: clothes2,
 	},
 	{
 		id: '22',
@@ -948,7 +980,7 @@ export const initialProducts: Product[] = [
 		color: 'Голубой',
 		brand: 'Ralph Lauren',
 		model: 'Oxford Shirt',
-		image: '/clothes3.png',
+		image: clothes3,
 		colorHex: '000000',
 	},
 	{
@@ -960,7 +992,7 @@ export const initialProducts: Product[] = [
 		color: 'Красный',
 		brand: 'Zara',
 		model: 'A-Line Dress',
-		image: '/clothes2.png',
+		image: clothes1,
 		colorHex: '000000',
 	},
 	{
@@ -972,7 +1004,7 @@ export const initialProducts: Product[] = [
 		color: 'Бежевый',
 		brand: 'Uniqlo',
 		model: 'Ultra Stretch',
-		image: '/clothes1.png',
+		image: clothes4,
 		colorHex: '000000',
 	},
 	{
@@ -984,7 +1016,7 @@ export const initialProducts: Product[] = [
 		color: 'Черный',
 		brand: 'Champion',
 		model: 'Reverse Weave',
-		image: '/clothes2.png',
+		image: clothes2,
 		colorHex: '000000',
 	},
 	{
@@ -996,7 +1028,7 @@ export const initialProducts: Product[] = [
 		color: 'Розовый',
 		brand: 'H&M',
 		model: 'Ribbed Tank',
-		image: '/clothes4.png',
+		image: clothes4,
 		colorHex: '000000',
 	},
 	{
@@ -1008,7 +1040,7 @@ export const initialProducts: Product[] = [
 		color: 'Зеленый',
 		brand: 'Mango',
 		model: 'Pleated Skirt',
-		image: '/clothes3.png',
+		image: clothes3,
 		colorHex: '000000',
 	},
 	{
@@ -1020,7 +1052,7 @@ export const initialProducts: Product[] = [
 		color: 'Серый',
 		brand: 'Hugo Boss',
 		model: 'Regular Fit Suit',
-		image: '/clothes2.png',
+		image: clothes2,
 		colorHex: '000000',
 	},
 	{
@@ -1032,7 +1064,7 @@ export const initialProducts: Product[] = [
 		color: 'Темно-синий',
 		brand: 'Burberry',
 		model: 'Classic Trench',
-		image: '/clothes1.png',
+		image: clothes1,
 		colorHex: '000000',
 	},
 	{
@@ -1044,7 +1076,7 @@ export const initialProducts: Product[] = [
 		color: 'Белый',
 		brand: 'Columbia',
 		model: 'Pike Lake Vest',
-		image: '/clothes4.png',
+		image: clothes4,
 		colorHex: '000000',
 	},
 	{
@@ -1056,7 +1088,7 @@ export const initialProducts: Product[] = [
 		color: 'Черный',
 		brand: 'Under Armour',
 		model: 'Rival Fleece',
-		image: '/clothes2.png',
+		image: clothes2,
 		colorHex: '000000',
 	},
 	{
@@ -1068,7 +1100,7 @@ export const initialProducts: Product[] = [
 		color: 'Фиолетовый',
 		brand: 'Lululemon',
 		model: 'Align Leggings',
-		image: '/clothes3.png',
+		image: clothes3,
 		colorHex: '000000',
 	},
 
@@ -1081,7 +1113,7 @@ export const initialProducts: Product[] = [
 		color: 'Черный',
 		brand: 'Carhartt',
 		model: 'Watch Hat',
-		image: '/accessories1.png',
+		image: accessories1,
 		colorHex: '000000',
 	},
 	{
@@ -1093,7 +1125,7 @@ export const initialProducts: Product[] = [
 		color: 'Коричневый',
 		brand: 'Fjallraven',
 		model: 'Kanken Backpack',
-		image: '/accessories2.png',
+		image: accessories2,
 		colorHex: '000000',
 	},
 	{
@@ -1105,7 +1137,7 @@ export const initialProducts: Product[] = [
 		color: 'Серый',
 		brand: 'Ray-Ban',
 		model: 'Wayfarer',
-		image: '/accessories3.png',
+		image: accessories3,
 		colorHex: '000000',
 	},
 	{
@@ -1118,7 +1150,7 @@ export const initialProducts: Product[] = [
 		brand: 'Gucci',
 		model: 'Leather Belt',
 		colorHex: '000000',
-		image: '/accessories4.png',
+		image: accessories4,
 	},
 	{
 		id: '37',
@@ -1129,7 +1161,7 @@ export const initialProducts: Product[] = [
 		color: 'Бежевый',
 		brand: 'Acne Studios',
 		model: 'Wool Scarf',
-		image: '/accessories3.png',
+		image: accessories3,
 		colorHex: '000000',
 	},
 	{
@@ -1141,7 +1173,7 @@ export const initialProducts: Product[] = [
 		color: 'Серый',
 		brand: 'The North Face',
 		model: 'Etip Gloves',
-		image: '/accessories2.png',
+		image: accessories2,
 		colorHex: '000000',
 	},
 	{
@@ -1153,7 +1185,7 @@ export const initialProducts: Product[] = [
 		color: 'Черный',
 		brand: 'Bellroy',
 		model: 'Slim Wallet',
-		image: '/accessories1.png',
+		image: accessories1,
 		colorHex: '000000',
 	},
 	{
@@ -1165,7 +1197,7 @@ export const initialProducts: Product[] = [
 		color: 'Серебристый',
 		brand: 'Casio',
 		model: 'G-Shock',
-		image: '/accessories4.png',
+		image: accessories4,
 		colorHex: '000000',
 	},
 	{
@@ -1177,7 +1209,7 @@ export const initialProducts: Product[] = [
 		color: 'Золотой',
 		brand: 'Tiffany & Co',
 		model: 'Return to Tiffany',
-		image: '/accessories3.png',
+		image: accessories3,
 		colorHex: '000000',
 	},
 	{
@@ -1189,7 +1221,7 @@ export const initialProducts: Product[] = [
 		color: 'Розовый',
 		brand: 'Swarovski',
 		model: 'Crystal Earrings',
-		image: '/accessories1.png',
+		image: accessories1,
 		colorHex: '000000',
 	},
 	{
@@ -1201,7 +1233,7 @@ export const initialProducts: Product[] = [
 		color: 'Синий',
 		brand: 'Pandora',
 		model: 'Heart Pendant',
-		image: '/accessories2.png',
+		image: accessories2,
 		colorHex: '000000',
 	},
 	{
@@ -1213,7 +1245,7 @@ export const initialProducts: Product[] = [
 		color: 'Белый',
 		brand: 'New Era',
 		model: '9Forty Cap',
-		image: '/accessories4.png',
+		image: accessories4,
 		colorHex: '000000',
 	},
 	{
@@ -1225,7 +1257,7 @@ export const initialProducts: Product[] = [
 		color: 'Черный',
 		brand: 'Herschel',
 		model: 'Little America Backpack',
-		image: '/accessories4.png',
+		image: accessories1,
 		colorHex: '000000',
 	},
 	{
@@ -1237,7 +1269,7 @@ export const initialProducts: Product[] = [
 		color: 'Прозрачный',
 		brand: 'Apple',
 		model: 'iPhone Case',
-		image: '/accessories1.png',
+		image: accessories3,
 		colorHex: '000000',
 	},
 	{
@@ -1249,7 +1281,7 @@ export const initialProducts: Product[] = [
 		color: 'Коричневый',
 		brand: 'Oakley',
 		model: 'Frogskins',
-		image: '/accessories2.png',
+		image: accessories2,
 		colorHex: '000000',
 	},
 	{
@@ -1261,7 +1293,7 @@ export const initialProducts: Product[] = [
 		color: 'Синий',
 		brand: 'Hermès',
 		model: 'Silk Tie',
-		image: '/accessories1.png',
+		image: accessories1,
 		colorHex: '000000',
 	},
 ]

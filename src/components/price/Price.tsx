@@ -1,4 +1,5 @@
 import CustomButton from '../CustomButton'
+import price from '/price.png'
 
 const Price = () => {
 	return (
@@ -42,7 +43,7 @@ const Price = () => {
 				</div>
 				<img
 					className='absolute max-[745px]:hidden max-[1040px]:right-[0px]  right-[30px] top-[-120px]  max-[1500px]:w-[40%] max-[840px]:top-[-20px] max-[1200px]:w-[45%] max-[1040px]:w-[50%]'
-					src='price-png.png'
+					src={price}
 					alt=''
 				/>
 			</div>

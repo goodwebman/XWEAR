@@ -1,5 +1,6 @@
 import { accordionItems } from '../../data'
 import Accordion from './Accordion'
+import FooterLogo from '/logo-footer.png'
 
 const Footer = () => {
 	return (
@@ -7,7 +8,7 @@ const Footer = () => {
 			{/* MOBILE  */}
 			<div className='max-[600px]:flex hidden flex-col py-[30px] justify-center'>
 				<button className='mx-auto mb-[20px]'>
-					<img src='/logo-footer.png' alt='logo-footer' />
+					<img src={FooterLogo} alt='logo-footer' />
 				</button>
 
 				<Accordion items={accordionItems} />

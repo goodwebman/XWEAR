@@ -1,6 +1,7 @@
 import useCartBasket from '@/hooks/useCartBasket'
 import React from 'react'
 import { Link } from 'react-router'
+import basketImg from '/basket.svg'
 
 const Cart: React.FC = () => {
 	const {
@@ -18,7 +19,7 @@ const Cart: React.FC = () => {
 	return (
 		<div className='flex gap-[6px] items-center'>
 			<button onClick={toggleCart} className='focus:outline-none relative'>
-				<img src='/basket.svg' alt='' />
+				<img src={basketImg} alt='' />
 				{cartItems.length > 0 && (
 					<span className='absolute top-[-3px] right-[-4px] bg-[#49D0FF] text-white text-xs rounded-full px-2 py-0.5 transform translate-x-2 -translate-y-1'>
 						{cartItems.length}
@@ -55,7 +56,7 @@ const Cart: React.FC = () => {
 				</div>
 
 				{/* Содержимое корзины */}
-				<div className='p-4 overflow-y-auto h-[calc(100%-170px)]'>
+				<div className='p-4 overflow-y-auto scrollable-container h-[calc(100%-170px)]'>
 					{cartItems.length === 0 ? (
 						<p>Корзина пуста</p>
 					) : (
