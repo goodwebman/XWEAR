@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 import path from 'path'; // Import path
 
 export default defineConfig({
-	base: "/XWEAR/",
+	base: "",
 	plugins: [react(), tailwindcss()],
 	resolve: {
 		alias: {
