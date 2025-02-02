@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router'
 import useCartStore from '../../store/basketStore'
 
 const Cart: React.FC = () => {
@@ -34,6 +35,8 @@ const Cart: React.FC = () => {
 			document.removeEventListener('mousedown', handleClickOutside)
 		}
 	}, [isBasketOpen, closeCart])
+
+	
 
 	return (
 		<div className='flex gap-[6px] items-center'>
@@ -86,8 +89,14 @@ const Cart: React.FC = () => {
 									className='flex items-center justify-between gap-[20px] py-2 border-b last:border-b-0'
 								>
 									<div className='flex flex-col '>
-										<p className='font-semibold'>{item.brand} {item.model}</p>
-										<img src={item.image} alt="no image" />
+										<p className='font-semibold'>
+											{item.brand} {item.model}
+										</p>
+										<Link
+											to={`/product?type=${item.type}&category=${item.category}&brand=${item.brand}&model=${item.model}`}
+										>
+											<img src={item.image} alt='no image' />
+										</Link>
 										<div className='flex items-center gap-2'>
 											<p>Цена: {item.price}</p>
 											<p>Кол-во: {item.quantity}</p>

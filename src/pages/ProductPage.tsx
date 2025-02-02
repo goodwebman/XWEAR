@@ -1,4 +1,4 @@
-import Cart from '@/components/Basket/Cart'
+import Cart from '@/components/basket/Cart'
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Categories from '../components/categories/Categories'
@@ -7,7 +7,7 @@ import { handsomePrice } from '../libs/handsomePrice'
 import useFavoritesStore from '../store/FavoriteStore'
 import useCartStore from '../store/basketStore'
 
-import toast, {Toaster} from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast'
 
 function ProductPage() {
 	const location = useLocation()
@@ -18,7 +18,6 @@ function ProductPage() {
 	const category = queryParams.get('category')
 	const brand = queryParams.get('brand')
 	const model = queryParams.get('model')
-	
 
 	const foundProduct = products.find(
 		p =>
@@ -26,7 +25,6 @@ function ProductPage() {
 			p.category === category &&
 			p.brand === brand &&
 			p.model === model
-			
 	)
 
 	const { image, price, id, color } = foundProduct
@@ -59,7 +57,7 @@ function ProductPage() {
 		setSelectedSize(size)
 	}
 
-	const { addItem } = useCartStore() // Получаем addItem из нашего хранилища
+	const { addItem } = useCartStore()
 
 	const handleAddToCart = () => {
 		if (selectedSize) {
@@ -68,7 +66,9 @@ function ProductPage() {
 				price,
 				brand,
 				model,
-				image
+				image,
+				type,
+				category,
 			})
 
 			toast.success(
@@ -85,7 +85,7 @@ function ProductPage() {
 
 	return (
 		<>
-			<Toaster position="top-center" />
+			<Toaster position='top-center' />
 			<section className='max-w-[1300px] mx-auto px-[20px] flex flex-col '>
 				<div className='pt-[15px] text-[#8C8F96]  pb-[50px]'>
 					<span className=''>Главная &nbsp; /</span>

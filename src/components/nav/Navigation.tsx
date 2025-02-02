@@ -1,10 +1,9 @@
-import useCartStore from '@/store/basketStore'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { initialProducts } from '../../data'
 import { useSearch } from '../../hooks/SearchContext'
+import Cart from '../basket/Cart'
 import SearchInput from '../catalog/SearchInput'
-import Cart from '../Basket/Cart'
 
 interface NavItem {
 	name: string
@@ -99,16 +98,12 @@ const Navigation: React.FC = () => {
 		navigate(path)
 	}
 
-	// basket
-
-	
-
 	return (
 		<nav className='bg-[#121214] '>
 			<div className='max-w-[1300px] min-h-[115px] px-[30px] m-auto py-[32px] flex items-center justify-between'>
 				{/* LOGO */}
 				{!showSearchInput && (
-					<div className='flex gap-[54px] max-[400px]:gap-[20px]'>
+					<div className='flex gap-[54px] max-[400px]:gap-[20px] '>
 						<button
 							onClick={toggleMenu}
 							className='hidden max-[500px]:block cursor-pointer'
