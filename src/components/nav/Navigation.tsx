@@ -5,6 +5,7 @@ import SearchInput from '../catalog/SearchInput'
 import FavoritesDrawer from '../favs/Favorites'
 import Logo from '/logo.svg'
 import search from '/search.svg'
+import { Link } from 'react-router'
 
 const Navigation: React.FC = () => {
 	const { handleSearch } = useSearch()
@@ -48,9 +49,9 @@ const Navigation: React.FC = () => {
 								/>
 							</svg>
 						</button>
-						<a href='/XWEAR/'>
+						<Link to='XWEAR/' >
 							<img src={Logo} alt='' />
-						</a>
+						</Link>
 
 						<button
 							onClick={toggleMenu}
