@@ -48,7 +48,7 @@ const Navigation: React.FC = () => {
 								/>
 							</svg>
 						</button>
-						<a href='/'>
+						<a href='XWEAR/'>
 							<img src={Logo} alt='' />
 						</a>
 
