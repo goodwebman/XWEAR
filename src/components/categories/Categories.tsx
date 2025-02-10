@@ -78,7 +78,7 @@ const Categories = ({ cat, data, moreButton, isCatalog }: MyComponentProps) => {
 			</div>
 
 			<div className='relative flex flex-col items-center mt-[10px]'>
-				<div className='grid max-[950px]:grid-cols-3 max-[650px]:grid-cols-2 grid-cols-4 gap-4 items-baseline'>
+				<div className='grid  max-[950px]:grid-cols-3 max-[650px]:grid-cols-2 grid-cols-4 gap-4 items-baseline'>
 					{currentItems.map(shoe => (
 						<CategoriesItem
 							key={shoe.id}

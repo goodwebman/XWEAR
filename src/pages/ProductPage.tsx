@@ -178,7 +178,7 @@ function ProductPage() {
 					</div>
 				</div>
 
-				<Cart />
+				
 			</section>
 		</>
 	)

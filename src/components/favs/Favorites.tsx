@@ -30,6 +30,11 @@ const FavoritesDrawer: React.FC = () => {
 						fill='white'
 					/>
 				</svg>
+				{favorites.length > 0 && (
+					<span className='absolute top-[-3px] right-[-4px] bg-[#49D0FF] text-white text-xs rounded-full px-2 py-0.5 transform translate-x-2 -translate-y-1'>
+						{favorites.length}
+					</span>
+				)}
 			</button>
 
 			<div
