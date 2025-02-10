@@ -48,7 +48,7 @@ const CategoriesItem = ({
 	return (
 		<button
 			onClick={handleProductClick}
-			className='text-left flex flex-col justify-center cursor-pointer min-w-[160px]'
+			className='text-left flex flex-col justify-center cursor-pointer   min-w-[160px]'
 		>
 			<div className='relative mt-[15px]'>
 				<img src={img} alt={model} />
@@ -71,12 +71,14 @@ const CategoriesItem = ({
 				</svg>
 			</div>
 
-			<h2 className='font-[800] text-[20px] leading-[25px] pb-[5px]'>
-				{brand} {model}
-			</h2>
-			<p className='text-[16px] font-[400] align-text-bottom'>
-				от {handsomePrice(price)} ₽
-			</p>
+			<div className='min-h-[100px]'>
+				<h2 className='font-[800] text-[20px] leading-[25px] pb-[5px]'>
+					{brand} {model}
+				</h2>
+				<p className='text-[16px] font-[400] align-text-bottom'>
+					от {handsomePrice(price)} ₽
+				</p>
+			</div>
 		</button>
 	)
 }
